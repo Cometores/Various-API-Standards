@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using DishesAPI.Entities;
-using MinimalAPI.Models;
+using Minimal.API.Models;
 
-namespace MinimalAPI.Profiles;
+namespace Minimal.API.Profiles;
 
 public class DishProfile : Profile
 {

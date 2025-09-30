@@ -1,4 +1,4 @@
-﻿namespace MinimalAPI.Models;
+﻿namespace Minimal.API.Models;
 
 public class IngredientDto
 {

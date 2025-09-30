@@ -1,8 +1,8 @@
-﻿using MinimalAPI.EndpointFilters;
-using MinimalAPI.EndpointHandlers;
-using MinimalAPI.Models;
+﻿using Minimal.API.EndpointFilters;
+using Minimal.API.EndpointHandlers;
+using Minimal.API.Models;
 
-namespace MinimalAPI.Extensions;
+namespace Minimal.API.Extensions;
 
 public static class EndpointRouteBuilderExtensions
 {
@@ -46,6 +46,5 @@ public static class EndpointRouteBuilderExtensions
             .RequireAuthorization();
 
         ingredientsEndpoints.MapGet("", IngredientsHandlers.GetIngredientsAsync);
-        ingredientsEndpoints.MapPost("", () => { throw new NotImplementedException(); });
     }
 }

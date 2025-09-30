@@ -1,7 +1,7 @@
 using DishesAPI.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using MinimalAPI.Extensions;
+using Minimal.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -52,8 +52,6 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler();
 }
-
-app.UseHttpsRedirection();
 
 app.UseSwagger();
 app.UseSwaggerUI();

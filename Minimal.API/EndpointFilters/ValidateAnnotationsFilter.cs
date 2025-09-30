@@ -1,7 +1,7 @@
-﻿using MinimalAPI.Models;
+﻿using Minimal.API.Models;
 using MiniValidation;
 
-namespace MinimalAPI.EndpointFilters;
+namespace Minimal.API.EndpointFilters;
 
 public class ValidateAnnotationsFilter : IEndpointFilter
 {

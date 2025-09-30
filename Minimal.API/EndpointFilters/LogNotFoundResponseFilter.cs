@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace MinimalAPI.EndpointFilters;
+namespace Minimal.API.EndpointFilters;
 
 public class LogNotFoundResponseFilter : IEndpointFilter
 {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MinimalAPI.Models;
+namespace Minimal.API.Models;
 
 public class DishForCreationDto
 {

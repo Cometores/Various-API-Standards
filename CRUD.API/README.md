@@ -27,12 +27,15 @@ You can use either [Swagger](#swagger) or [Postman](#postman) to play with the A
 
 ### Postman
 Import the collection from `CRUD.API.postman_collection.json` [file](CRUD.API.postman_collection.json).
+![postman.png](../documentation/postman.png)
+
 You need to run authentication first, and token will be automatically stored to the collection variables.
 Use the requests in the given order, as `PUT`, `PATCH` and `DELETE` will work with your created data.
 
 
 ### Swagger
 Accessible at [http://localhost:7126/swagger](https://localhost:7126/swagger/index.html).
+![swagger.png](../documentation/swagger.png)
 
 You need to authenticate first.
 - Which password and username you choose are not important.
@@ -84,7 +87,7 @@ The application implements a layered architecture for data access using the foll
   - `FileExtensionContentTypeProvider` - to create a `Content-Type` field for specific files
 - Output XML serialization: `XmlDataContractSerializerFormatters`
 - Logging -`Serilog`
-    - `serilog.sinks.file`
+    - `serilog.sinks.file` - creates file `logs/cityinfoYYYMMDD.txt`
     - `serilog.sinks.console`
 - Dummy mail service — custom-created service
     - different implementations for development and production

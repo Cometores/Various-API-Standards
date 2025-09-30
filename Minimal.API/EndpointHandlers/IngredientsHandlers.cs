@@ -2,9 +2,9 @@
 using DishesAPI.DbContexts;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
-using MinimalAPI.Models;
+using Minimal.API.Models;
 
-namespace MinimalAPI.EndpointHandlers;
+namespace Minimal.API.EndpointHandlers;
 
 public class IngredientsHandlers
 {

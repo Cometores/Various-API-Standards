@@ -10,12 +10,12 @@ APIs described in the repository:
 - [OData API](#odata-api)
 - [API with Unit Testing](#unit-testing)
 
-
+Postman collections with tests are also attached to the API's folders.
 
 
 
 ## Basic CRUD API
-API for getting and managing simple information about cities and their points of interest. 
+API for getting and managing simple information about cities and their points of interest.</br>
 More information about the API can be found in the [documentation file](./CRUD.API/README.md).
 
 Key features:
@@ -26,6 +26,7 @@ Key features:
 - **Dummy mail service**
 - **SQLite** database
 - **API versioning**
+- **Filtering** & **searching**
 - **Paging**
 - **File** upload
 
@@ -33,35 +34,23 @@ Key features:
 
 
 ## Minimal API
-Inspired by
-[Kevin's Dockx](https://app.pluralsight.com/library/courses/asp-dot-net-core-7-building-minimal-apis/table-of-contents)
-course from pluralsight.
+API for getting and managing information about dishes and their ingredients.</br>
+More information about the API can be found in the [documentation file](./MinimalAPI/README.md).
 
-### Auth
-JWT-Bearer Token is used to perform the authorization. To create such a token, use the CLI command inside the 
-MinimalAPI project folder:
-<br />`dotnet user-jwts create --audience MinimalAPI`
-<br />The command will create a token with the following parameters:
-- audience: **MinimalAPI**
-- valid issuer: **dotnet-user-jwts**
-- name: **your computer name**
+Key features:
+- **Minimal endpoints** setup
+- creating auth token with `.net cli`
+- **JWT-Bearer Token** authentication
+- **Role-based** authorization
+- **SQLite** database
+- recreating Database on each run
+- **Logging**
+- **Route grouping**
+- **Filtering**
+- **Custom parameter binding**
+- **Error handling** middleware
 
-*You can see what's inside the generated token on this [website](https://jwt.io/) or via CLI command:*
-<br />`dotnet user-jwts print <TokenID>`
 
-<br />
-
-Use the generated token in the request authorization tab or on the Postman collection itself:
-![SSL](./others/PostmanBearer_MinimalAPI.png)
-
-The token parameters are checked by the API using the Microsoft JwtBearer package configuration settings, which are 
-taken from [appsettings.json "Authentication"](MinimalAPI/appsettings.json).
-
-<br />
-
-#### Authorization policy
-For the `POST /dishes` method you need to have the **admin role** and the claim **country=Germany**:
-<br />`dotnet user-jwts create --audience MinimalAPI --claim country=Germany --role admin`
 
 
 
