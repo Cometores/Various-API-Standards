@@ -1,10 +1,33 @@
 # Examples of different API standards
-Complex examples of different types of APIs. This includes:
-- [Minimal API](#minimal-api)
+Comprehensive examples of various API types with configured services. They can be used for prototyping or as 
+a basis for creating a new API. For a detailed description of the services 
+and architecture, see the corresponding documentation file.
+
+APIs described in the repository:
 - [Basic CRUD API](#basic-crud-api)
+- [Minimal API](#minimal-api)
 - [Restful API](#restful-api)
 - [OData API](#odata-api)
 - [API with Unit Testing](#unit-testing)
+
+
+
+
+
+## Basic CRUD API
+API for getting and managing simple information about cities and their points of interest. 
+More information about the API can be found in the [documentation file](./CRUD.API/README.md).
+
+Key features:
+- **Authentication** & **Authorization**
+- **Swagger** documentation
+- **Logging** into file and console
+- **XML** and **JSON** serialization
+- **Dummy mail service**
+- **SQLite** database
+- **API versioning**
+- **Paging**
+- **File** upload
 
 
 
@@ -40,28 +63,6 @@ taken from [appsettings.json "Authentication"](MinimalAPI/appsettings.json).
 For the `POST /dishes` method you need to have the **admin role** and the claim **country=Germany**:
 <br />`dotnet user-jwts create --audience MinimalAPI --claim country=Germany --role admin`
 
-
-
-
-## Basic CRUD API
-API for getting and managing simple information about cities and their points of interest. Inspired by
-[Kevin's Dockx](https://app.pluralsight.com/library/courses/asp-dot-net-core-6-web-api-fundamentals/table-of-contents)
-course from pluralsight.
-
-**Types of endpoints implemented:** </br>
-&emsp;`get`, `post`, `put`, `patch`, `delete`
-
-**Services used:**
-- `JsonPatch` - to process the **patch** endpoint
-- `NewtonsoftJson` formatter - to serialize a JsonPatch document
-- `FileExtensionContentTypeProvider` - to create a `Content-Type` field for specific files
-- `XmlDataContractSerializerFormatters` - output XML serialization
-- `Serilog` - for logging into file and console
-  - `serilog.sinks.file`
-  - `serilog.sinks.console`
-- Dummy mail service - custom created
-  - different implementations for development and production
-  - mail addresses stored in configuration file
 
 
 ## Restful API

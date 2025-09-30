@@ -1,0 +1,781 @@
+{
+	"info": {
+		"_postman_id": "f09c84ef-b879-4761-89d0-29497483c4d1",
+		"name": "CRUD API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14906710"
+	},
+	"item": [
+		{
+			"name": "City",
+			"item": [
+				{
+					"name": "GET Cities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/v1/cities",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"v1",
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET City",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/v1/cities/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"v1",
+								"cities",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Cities (XML)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/v1/cities",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"v1",
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Cities, filtered",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/v1/cities?name=Antwerp",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"v1",
+								"cities"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Antwerp"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Cities, searched",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/v1/cities?searchQuery=the",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"v1",
+								"cities"
+							],
+							"query": [
+								{
+									"key": "searchQuery",
+									"value": "the"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Cities, filtered, searched",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/v1/cities?name=Antwerp&searchQuery=the",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"v1",
+								"cities"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Antwerp"
+								},
+								{
+									"key": "searchQuery",
+									"value": "the"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Cities, paged",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/v1/cities?pageSize=1&pageNumber=2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"v1",
+								"cities"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "1"
+								},
+								{
+									"key": "pageNumber",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PointOfInterest",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "GET Points of Interest",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"v2",
+										"cities",
+										"3",
+										"pointsofinterest"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Points of Interest (unexisting City)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/v2/cities/4/pointsofinterest",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"v2",
+										"cities",
+										"4",
+										"pointsofinterest"
+									]
+								},
+								"description": "Should return 404 NotFound"
+							},
+							"response": []
+						},
+						{
+							"name": "GET Point of Interest",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/v2/cities/1/pointsofinterest/2",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"v2",
+										"cities",
+										"1",
+										"pointsofinterest",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Point of Interest (unexisting City)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/cities/4/pointsofinterest/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"cities",
+										"4",
+										"pointsofinterest",
+										"1"
+									]
+								},
+								"description": "Should return 404 NotFound"
+							},
+							"response": []
+						},
+						{
+							"name": "GET Point of Interest (unexisting Point of Interest)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/cities/1/pointsofinterest/10",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"cities",
+										"1",
+										"pointsofinterest",
+										"10"
+									]
+								},
+								"description": "Should return 404 NotFound"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "POST Point of Interest",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Something else\",\n    \"description\": \"Famous cemetery where Jim Morrison and Oscar Wilde are buried.\"\n}"
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"v2",
+										"cities",
+										"3",
+										"pointsofinterest"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST Point of Interest (can't deserialize)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"v2",
+										"cities",
+										"3",
+										"pointsofinterest"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST Point of Interest (missing name, long description)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"invalidProperty\": 1,\n    \"description\": \"Scallywag holystone landlubber or just lubber yardarm tackle Shiver me timbers cog heave down provost Admiral of the Black. Hornswaggle spanker man-of-war yo-ho-ho mutiny splice the main brace jack keelhaul fire ship Corsair. Bounty prow walk the plank lugsail port loot pirate bilge jib scuppers.  Sutler lee matey sloop plunder splice the main brace interloper Yellow Jack maroon quarter. Draft Privateer run a shot across the bow chandler gaff broadside Pirate Round jolly boat skysail bilge. Chandler mutiny careen execution dock splice the main brace bring a spring upon her cable lass run a rig grog blossom smartly.  Gangplank Davy Jones' Locker plunder overhaul draught pinnace blow the man down bring a spring upon her cable no prey, no pay keel. Gold Road gaff grapple sutler scurvy aft bilge come about coffer gunwalls. Scuttle list Davy Jones' Locker pinnace chase trysail draught Pirate Round Jolly Roger log.\"\n}\n"
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"v2",
+										"cities",
+										"3",
+										"pointsofinterest"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"item": [
+						{
+							"name": "PUT Point of Interest",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Updated - Eiffel Tower\",\n    \"description\": \"Updated - A wrought iron lattice tower on the Champ de Mars.\"\n}"
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/8",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"v2",
+										"cities",
+										"3",
+										"pointsofinterest",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT Point of Interest (no description)",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Updated again - Central Park\"\n}"
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/8",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"v2",
+										"cities",
+										"3",
+										"pointsofinterest",
+										"8"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PATCH",
+					"item": [
+						{
+							"name": "PATCH Point of Interest",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n      \"op\": \"replace\",\n      \"path\": \"/name\",\n      \"value\": \"Updated - Central Park\"\n    }\n]"
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/8",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"v2",
+										"cities",
+										"3",
+										"pointsofinterest",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PATCH Point of Interest (update multiple)",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n      \"op\": \"replace\",\n      \"path\": \"/name\",\n      \"value\": \"Updated - Central Park\"\n    },\n    {\n      \"op\": \"replace\",\n      \"path\": \"/description\",\n      \"value\": \"Updated - Description\"\n    }\n]"
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/8",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"v2",
+										"cities",
+										"3",
+										"pointsofinterest",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PATCH Point of Interest (invalid property)",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n      \"op\": \"replace\",\n      \"path\": \"/invalidproperty\",\n      \"value\": \"Updated - Central Park\"\n    }\n]"
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/8",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"v2",
+										"cities",
+										"3",
+										"pointsofinterest",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PATCH Point of Interest (remove name)",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n      \"op\": \"remove\",\n      \"path\": \"/name\"\n    }\n]"
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/8",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"v2",
+										"cities",
+										"3",
+										"pointsofinterest",
+										"8"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DELETE Point of Interest",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/8",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"v2",
+								"cities",
+								"3",
+								"pointsofinterest",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USE FIRST post Authentication info to get a token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let token = pm.response.text().trim();\r",
+							"pm.collectionVariables.set(\"token\", token);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Admin\",\r\n    \"password\": \"This is a relatively long sentence that acts as my password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:{{portNumber}}/api/authentication/authenticate",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber}}",
+					"path": [
+						"api",
+						"authentication",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET File",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:{{portNumber}}/api/files/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber}}",
+					"path": [
+						"api",
+						"files",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "portNumber",
+			"value": ""
+		}
+	]
+}

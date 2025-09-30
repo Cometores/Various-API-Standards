@@ -2,6 +2,10 @@
 logs/
 CityInfo.API/Migrations/
 
+# SQLite temporary files
+*.db-shm
+*.db-wal
+
 ## RIDER
 bin/
 obj/
