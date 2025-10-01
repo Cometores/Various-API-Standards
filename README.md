@@ -4,7 +4,7 @@ a basis for creating a new API. For a detailed description of the services
 and architecture, see the corresponding documentation file.
 
 APIs described in the repository:
-- [Basic CRUD API](#basic-crud-api)
+- [CRUD API](#basic-crud-api)
 - [Minimal API](#minimal-api)
 - [Restful API](#restful-api)
 - [OData API](#odata-api)
@@ -14,7 +14,7 @@ Postman collections with tests are also attached to the API's folders.
 
 
 
-## Basic CRUD API
+## CRUD API
 API for getting and managing simple information about cities and their points of interest.</br>
 More information about the API can be found in the [documentation file](./CRUD.API/README.md).
 
@@ -35,7 +35,7 @@ Key features:
 
 ## Minimal API
 API for getting and managing information about dishes and their ingredients.</br>
-More information about the API can be found in the [documentation file](./MinimalAPI/README.md).
+More information about the API can be found in the [documentation file](./Minimal.API/README.md).
 
 Key features:
 - **Minimal endpoints** setup
@@ -66,15 +66,16 @@ Inspired by
 course from pluralsight.
 
 
-## Unit testing
+## Testing an API
+Consists of two projects - API itself and tests on xUnit.</br>
+More information about the API can be found in the [documentation file](./Testing.API/README.md).
 Testing API with xUnit.
-Inspired by
-[Kevin's Dockx](https://app.pluralsight.com/library/courses/asp-dot-net-core-6-web-api-unit-testing/table-of-contents)
-course from pluralsight.
 
-SQLite as Database.
+Key features:
+- xUnit
+- SQLite
 
 
 ## Postman Collections
 If you encounter a certificate issue when submitting a request, disable certificate validation in the settings:
-![SSL](./others/PostmanSSL.png)
+![SSL](./documentation/PostmanSSL.png)

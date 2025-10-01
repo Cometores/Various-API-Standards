@@ -11,13 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AirVinyl", "AirVinyl\AirVin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.API", "Library.API\Library.API.csproj", "{D0D6143D-0B1C-4347-B9FC-B2B6324E0235}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement", "EmployeeManagement\EmployeeManagement.csproj", "{033A2C2A-3587-4FA9-99EB-96E42C574415}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement", "Testing.API\EmployeeManagement\EmployeeManagement.csproj", "{033A2C2A-3587-4FA9-99EB-96E42C574415}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TopLevelManagement", "TopLevelManagement\TopLevelManagement.csproj", "{87707E89-2058-470A-AA83-22B39C307593}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing.API", "Testing.API", "{FCDC2071-C6BB-47CC-B4C9-5A932F642BBB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EmployeeManagement", "EmployeeManagement", "{FCDC2071-C6BB-47CC-B4C9-5A932F642BBB}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Test", "EmployeeManagement.Test\EmployeeManagement.Test.csproj", "{56AFDB84-5B4F-4178-B217-FA6D2CE79A84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Test", "Testing.API\EmployeeManagement.Test\EmployeeManagement.Test.csproj", "{56AFDB84-5B4F-4178-B217-FA6D2CE79A84}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.API", "Minimal.API\Minimal.API.csproj", "{FD6483F9-8845-4233-9343-064A14453267}"
 EndProject
@@ -47,10 +45,6 @@ Global
 		{033A2C2A-3587-4FA9-99EB-96E42C574415}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{033A2C2A-3587-4FA9-99EB-96E42C574415}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{033A2C2A-3587-4FA9-99EB-96E42C574415}.Release|Any CPU.Build.0 = Release|Any CPU
-		{87707E89-2058-470A-AA83-22B39C307593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{87707E89-2058-470A-AA83-22B39C307593}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{87707E89-2058-470A-AA83-22B39C307593}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{87707E89-2058-470A-AA83-22B39C307593}.Release|Any CPU.Build.0 = Release|Any CPU
 		{56AFDB84-5B4F-4178-B217-FA6D2CE79A84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{56AFDB84-5B4F-4178-B217-FA6D2CE79A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56AFDB84-5B4F-4178-B217-FA6D2CE79A84}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -65,7 +59,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{033A2C2A-3587-4FA9-99EB-96E42C574415} = {FCDC2071-C6BB-47CC-B4C9-5A932F642BBB}
-		{87707E89-2058-470A-AA83-22B39C307593} = {FCDC2071-C6BB-47CC-B4C9-5A932F642BBB}
 		{56AFDB84-5B4F-4178-B217-FA6D2CE79A84} = {FCDC2071-C6BB-47CC-B4C9-5A932F642BBB}
 	EndGlobalSection
 EndGlobal
