@@ -20,4 +20,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="..\..\tests\Minimal.API.postman_collection.json">
+      <Link>Minimal.API.postman_collection.json</Link>
+    </Content>
+  </ItemGroup>
+
 </Project>
