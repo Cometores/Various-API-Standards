@@ -27,7 +27,7 @@ You can use either [Swagger](#swagger) or [Postman](#postman) to play with the A
 
 ### Postman
 Import the collection from `CRUD.API.postman_collection.json` [file](CRUD.API.postman_collection.json).
-![postman.png](../documentation/postman.png)
+![postman.png](../../docs/postman.png)
 
 You need to run authentication first, and token will be automatically stored to the collection variables.
 Use the requests in the given order, as `PUT`, `PATCH` and `DELETE` will work with your created data.
@@ -35,7 +35,7 @@ Use the requests in the given order, as `PUT`, `PATCH` and `DELETE` will work wi
 
 ### Swagger
 Accessible at [http://localhost:7126/swagger](https://localhost:7126/swagger/index.html).
-![swagger.png](../documentation/swagger.png)
+![swagger.png](../../docs/swagger.png)
 
 You need to authenticate first.
 - Which password and username you choose are not important.

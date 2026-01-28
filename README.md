@@ -4,11 +4,11 @@ a basis for creating a new API. For a detailed description of the services
 and architecture, see the corresponding documentation file.
 
 APIs described in the repository:
-- [CRUD API](#basic-crud-api)
+- [CRUD API](#crud-api)
 - [Minimal API](#minimal-api)
 - [Restful API](#restful-api)
 - [OData API](#odata-api)
-- [API with Unit Testing](#unit-testing)
+- [API with Unit Testing](#testing-an-api)
 
 Postman collections with tests are also attached to the API's folders.
 
@@ -16,7 +16,7 @@ Postman collections with tests are also attached to the API's folders.
 
 ## CRUD API
 API for getting and managing simple information about cities and their points of interest.</br>
-More information about the API can be found in the [documentation file](./CRUD.API/README.md).
+More information about the API can be found in the [documentation file](./src/CRUD.API/README.md).
 
 Key features:
 - **Authentication** & **Authorization**
@@ -35,7 +35,7 @@ Key features:
 
 ## Minimal API
 API for getting and managing information about dishes and their ingredients.</br>
-More information about the API can be found in the [documentation file](./Minimal.API/README.md).
+More information about the API can be found in the [documentation file](./src/Minimal.API/README.md).
 
 Key features:
 - **Minimal endpoints** setup
@@ -68,7 +68,7 @@ course from pluralsight.
 
 ## Testing an API
 Consists of two projects - API itself and tests on xUnit.</br>
-More information about the API can be found in the [documentation file](./Testing.API/README.md).
+More information about the API can be found in the [documentation file](./src/EmployeeManagement/README.md).
 Testing API with xUnit.
 
 Key features:
@@ -78,4 +78,4 @@ Key features:
 
 ## Postman Collections
 If you encounter a certificate issue when submitting a request, disable certificate validation in the settings:
-![SSL](./documentation/PostmanSSL.png)
+![SSL](./docs/PostmanSSL.png)

@@ -39,7 +39,7 @@ MinimalAPI project folder:
 <br />
 
 Use the generated token in the request authorization tab or on the Postman collection itself:
-![SSL](../documentation/PostmanBearer_MinimalAPI.png)
+![SSL](../../docs/PostmanBearer_MinimalAPI.png)
 
 The token parameters are checked by the API using the Microsoft JwtBearer package configuration settings, which are
 taken from [appsettings.json "Authentication"](appsettings.json).

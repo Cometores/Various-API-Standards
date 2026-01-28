@@ -3,21 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRUD.API", "CRUD.API\CRUD.API.csproj", "{DAFD5337-E1A1-408C-B8BD-31A85EEA5930}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRUD.API", "src\CRUD.API\CRUD.API.csproj", "{DAFD5337-E1A1-408C-B8BD-31A85EEA5930}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseLibrary.API", "CourseLibrary.API\CourseLibrary.API.csproj", "{0B997F28-0747-4AFD-A692-9E5B5C07537B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseLibrary.API", "src\CourseLibrary.API\CourseLibrary.API.csproj", "{0B997F28-0747-4AFD-A692-9E5B5C07537B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AirVinyl", "AirVinyl\AirVinyl.csproj", "{5A32C172-FA4A-432C-A20C-A1E6D91696BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AirVinyl", "src\AirVinyl\AirVinyl.csproj", "{5A32C172-FA4A-432C-A20C-A1E6D91696BB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.API", "Library.API\Library.API.csproj", "{D0D6143D-0B1C-4347-B9FC-B2B6324E0235}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.API", "src\Library.API\Library.API.csproj", "{D0D6143D-0B1C-4347-B9FC-B2B6324E0235}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement", "Testing.API\EmployeeManagement\EmployeeManagement.csproj", "{033A2C2A-3587-4FA9-99EB-96E42C574415}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement", "src\EmployeeManagement\EmployeeManagement.csproj", "{033A2C2A-3587-4FA9-99EB-96E42C574415}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing.API", "Testing.API", "{FCDC2071-C6BB-47CC-B4C9-5A932F642BBB}"
+	ProjectSection(SolutionItems) = preProject
+		src\EmployeeManagement\README.md = src\EmployeeManagement\README.md
+	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Test", "Testing.API\EmployeeManagement.Test\EmployeeManagement.Test.csproj", "{56AFDB84-5B4F-4178-B217-FA6D2CE79A84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Test", "tests\EmployeeManagement.Test\EmployeeManagement.Test.csproj", "{56AFDB84-5B4F-4178-B217-FA6D2CE79A84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.API", "Minimal.API\Minimal.API.csproj", "{FD6483F9-8845-4233-9343-064A14453267}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.API", "src\Minimal.API\Minimal.API.csproj", "{FD6483F9-8845-4233-9343-064A14453267}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B001C887-4E66-4A70-A732-82BCB4A47002}"
 	ProjectSection(SolutionItems) = preProject
