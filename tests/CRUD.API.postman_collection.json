@@ -1,781 +1,1780 @@
 {
-	"info": {
-		"_postman_id": "f09c84ef-b879-4761-89d0-29497483c4d1",
-		"name": "CRUD API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "14906710"
-	},
-	"item": [
-		{
-			"name": "City",
-			"item": [
-				{
-					"name": "GET Cities",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://localhost:{{portNumber}}/api/v1/cities",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "{{portNumber}}",
-							"path": [
-								"api",
-								"v1",
-								"cities"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET City",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://localhost:{{portNumber}}/api/v1/cities/1",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "{{portNumber}}",
-							"path": [
-								"api",
-								"v1",
-								"cities",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET Cities (XML)",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml"
-							}
-						],
-						"url": {
-							"raw": "https://localhost:{{portNumber}}/api/v1/cities",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "{{portNumber}}",
-							"path": [
-								"api",
-								"v1",
-								"cities"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET Cities, filtered",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://localhost:{{portNumber}}/api/v1/cities?name=Antwerp",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "{{portNumber}}",
-							"path": [
-								"api",
-								"v1",
-								"cities"
-							],
-							"query": [
-								{
-									"key": "name",
-									"value": "Antwerp"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET Cities, searched",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://localhost:{{portNumber}}/api/v1/cities?searchQuery=the",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "{{portNumber}}",
-							"path": [
-								"api",
-								"v1",
-								"cities"
-							],
-							"query": [
-								{
-									"key": "searchQuery",
-									"value": "the"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET Cities, filtered, searched",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://localhost:{{portNumber}}/api/v1/cities?name=Antwerp&searchQuery=the",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "{{portNumber}}",
-							"path": [
-								"api",
-								"v1",
-								"cities"
-							],
-							"query": [
-								{
-									"key": "name",
-									"value": "Antwerp"
-								},
-								{
-									"key": "searchQuery",
-									"value": "the"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET Cities, paged",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://localhost:{{portNumber}}/api/v1/cities?pageSize=1&pageNumber=2",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "{{portNumber}}",
-							"path": [
-								"api",
-								"v1",
-								"cities"
-							],
-							"query": [
-								{
-									"key": "pageSize",
-									"value": "1"
-								},
-								{
-									"key": "pageNumber",
-									"value": "2"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "PointOfInterest",
-			"item": [
-				{
-					"name": "GET",
-					"item": [
-						{
-							"name": "GET Points of Interest",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "{{portNumber}}",
-									"path": [
-										"api",
-										"v2",
-										"cities",
-										"3",
-										"pointsofinterest"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET Points of Interest (unexisting City)",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://localhost:{{portNumber}}/api/v2/cities/4/pointsofinterest",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "{{portNumber}}",
-									"path": [
-										"api",
-										"v2",
-										"cities",
-										"4",
-										"pointsofinterest"
-									]
-								},
-								"description": "Should return 404 NotFound"
-							},
-							"response": []
-						},
-						{
-							"name": "GET Point of Interest",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://localhost:{{portNumber}}/api/v2/cities/1/pointsofinterest/2",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "{{portNumber}}",
-									"path": [
-										"api",
-										"v2",
-										"cities",
-										"1",
-										"pointsofinterest",
-										"2"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET Point of Interest (unexisting City)",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://localhost:{{portNumber}}/api/cities/4/pointsofinterest/1",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "{{portNumber}}",
-									"path": [
-										"api",
-										"cities",
-										"4",
-										"pointsofinterest",
-										"1"
-									]
-								},
-								"description": "Should return 404 NotFound"
-							},
-							"response": []
-						},
-						{
-							"name": "GET Point of Interest (unexisting Point of Interest)",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://localhost:{{portNumber}}/api/cities/1/pointsofinterest/10",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "{{portNumber}}",
-									"path": [
-										"api",
-										"cities",
-										"1",
-										"pointsofinterest",
-										"10"
-									]
-								},
-								"description": "Should return 404 NotFound"
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "POST",
-					"item": [
-						{
-							"name": "POST Point of Interest",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"Something else\",\n    \"description\": \"Famous cemetery where Jim Morrison and Oscar Wilde are buried.\"\n}"
-								},
-								"url": {
-									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "{{portNumber}}",
-									"path": [
-										"api",
-										"v2",
-										"cities",
-										"3",
-										"pointsofinterest"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "POST Point of Interest (can't deserialize)",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "{{portNumber}}",
-									"path": [
-										"api",
-										"v2",
-										"cities",
-										"3",
-										"pointsofinterest"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "POST Point of Interest (missing name, long description)",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"invalidProperty\": 1,\n    \"description\": \"Scallywag holystone landlubber or just lubber yardarm tackle Shiver me timbers cog heave down provost Admiral of the Black. Hornswaggle spanker man-of-war yo-ho-ho mutiny splice the main brace jack keelhaul fire ship Corsair. Bounty prow walk the plank lugsail port loot pirate bilge jib scuppers.  Sutler lee matey sloop plunder splice the main brace interloper Yellow Jack maroon quarter. Draft Privateer run a shot across the bow chandler gaff broadside Pirate Round jolly boat skysail bilge. Chandler mutiny careen execution dock splice the main brace bring a spring upon her cable lass run a rig grog blossom smartly.  Gangplank Davy Jones' Locker plunder overhaul draught pinnace blow the man down bring a spring upon her cable no prey, no pay keel. Gold Road gaff grapple sutler scurvy aft bilge come about coffer gunwalls. Scuttle list Davy Jones' Locker pinnace chase trysail draught Pirate Round Jolly Roger log.\"\n}\n"
-								},
-								"url": {
-									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "{{portNumber}}",
-									"path": [
-										"api",
-										"v2",
-										"cities",
-										"3",
-										"pointsofinterest"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "PUT",
-					"item": [
-						{
-							"name": "PUT Point of Interest",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"Updated - Eiffel Tower\",\n    \"description\": \"Updated - A wrought iron lattice tower on the Champ de Mars.\"\n}"
-								},
-								"url": {
-									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/8",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "{{portNumber}}",
-									"path": [
-										"api",
-										"v2",
-										"cities",
-										"3",
-										"pointsofinterest",
-										"8"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "PUT Point of Interest (no description)",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"Updated again - Central Park\"\n}"
-								},
-								"url": {
-									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/8",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "{{portNumber}}",
-									"path": [
-										"api",
-										"v2",
-										"cities",
-										"3",
-										"pointsofinterest",
-										"8"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "PATCH",
-					"item": [
-						{
-							"name": "PATCH Point of Interest",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "[\n    {\n      \"op\": \"replace\",\n      \"path\": \"/name\",\n      \"value\": \"Updated - Central Park\"\n    }\n]"
-								},
-								"url": {
-									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/8",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "{{portNumber}}",
-									"path": [
-										"api",
-										"v2",
-										"cities",
-										"3",
-										"pointsofinterest",
-										"8"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "PATCH Point of Interest (update multiple)",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "[\n    {\n      \"op\": \"replace\",\n      \"path\": \"/name\",\n      \"value\": \"Updated - Central Park\"\n    },\n    {\n      \"op\": \"replace\",\n      \"path\": \"/description\",\n      \"value\": \"Updated - Description\"\n    }\n]"
-								},
-								"url": {
-									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/8",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "{{portNumber}}",
-									"path": [
-										"api",
-										"v2",
-										"cities",
-										"3",
-										"pointsofinterest",
-										"8"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "PATCH Point of Interest (invalid property)",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "[\n    {\n      \"op\": \"replace\",\n      \"path\": \"/invalidproperty\",\n      \"value\": \"Updated - Central Park\"\n    }\n]"
-								},
-								"url": {
-									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/8",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "{{portNumber}}",
-									"path": [
-										"api",
-										"v2",
-										"cities",
-										"3",
-										"pointsofinterest",
-										"8"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "PATCH Point of Interest (remove name)",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "[\n    {\n      \"op\": \"remove\",\n      \"path\": \"/name\"\n    }\n]"
-								},
-								"url": {
-									"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/8",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "{{portNumber}}",
-									"path": [
-										"api",
-										"v2",
-										"cities",
-										"3",
-										"pointsofinterest",
-										"8"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "DELETE Point of Interest",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/8",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "{{portNumber}}",
-							"path": [
-								"api",
-								"v2",
-								"cities",
-								"3",
-								"pointsofinterest",
-								"8"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "USE FIRST post Authentication info to get a token",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"let token = pm.response.text().trim();\r",
-							"pm.collectionVariables.set(\"token\", token);\r",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {},
-						"requests": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"Admin\",\r\n    \"password\": \"This is a relatively long sentence that acts as my password\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:{{portNumber}}/api/authentication/authenticate",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "{{portNumber}}",
-					"path": [
-						"api",
-						"authentication",
-						"authenticate"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET File",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/xml"
-					}
-				],
-				"url": {
-					"raw": "https://localhost:{{portNumber}}/api/files/1",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "{{portNumber}}",
-					"path": [
-						"api",
-						"files",
-						"1"
-					]
-				}
-			},
-			"response": []
-		}
-	],
-	"auth": {
-		"type": "bearer",
-		"bearer": [
-			{
-				"key": "token",
-				"value": "{{token}}",
-				"type": "string"
-			}
-		]
-	},
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"requests": {},
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"requests": {},
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"key": "token",
-			"value": ""
-		},
-		{
-			"key": "portNumber",
-			"value": ""
-		}
-	]
+  "info": {
+    "_postman_id": "91d7683e-0a37-431c-a5c6-b54ada9e6983",
+    "name": "CRUD API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "14906710"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "USE FIRST post Authentication info to get a token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "let token = pm.response.text().trim();\r",
+                  "pm.collectionVariables.set(\"token\", token);\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"Admin\",\r\n    \"password\": \"This is a relatively long sentence that acts as my password\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:{{portNumber}}/api/authentication/authenticate",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "{{portNumber}}",
+              "path": [
+                "api",
+                "authentication",
+                "authenticate"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "City",
+      "item": [
+        {
+          "name": "Cities",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));\r",
+                  "\r",
+                  "pm.test(\"Response must be valid Json and have a body\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "    pm.response.to.be.json;\r",
+                  "});\r",
+                  "\r",
+                  "const jsonResponse = preRequestCollectionUtils.TryParseJSON(pm.response);\r",
+                  "\r",
+                  "pm.test(\"Response is a list with at least one item.\", function () {\r",
+                  "    pm.expect(jsonResponse).to.be.an(\"array\");\r",
+                  "    pm.expect(jsonResponse.length).to.greaterThan(0);\r",
+                  "\r",
+                  "    pm.test(\"Response list item has properties of a City\", function () {\r",
+                  "        let city = jsonResponse[0]; //check first object in list\r",
+                  "\r",
+                  "        pm.expect(city).to.have.property(\"id\");\r",
+                  "        pm.expect(city).to.have.property(\"name\");\r",
+                  "        pm.expect(city).to.have.property(\"description\");\r",
+                  "        pm.expect(city).not.to.have.property(\"numberOfPointsOfInterest\");\r",
+                  "        pm.expect(city).not.to.have.property(\"pointsOfInterest\");\r",
+                  "    })\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:{{portNumber}}/api/v1/cities",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "{{portNumber}}",
+              "path": [
+                "api",
+                "v1",
+                "cities"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cities (401 Unauthorized)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 401\", () => pm.response.to.have.status(401));"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:{{portNumber}}/api/v1/cities",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "{{portNumber}}",
+              "path": [
+                "api",
+                "v1",
+                "cities"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cities (XML)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));\r",
+                  "\r",
+                  "pm.test(\"Response must be valid XML and have a body\", () => {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "\r",
+                  "    // Header Content-Type is XML\r",
+                  "    const ct = (pm.response.headers.get(\"Content-Type\") || \"\").toLowerCase();\r",
+                  "    pm.expect(ct).to.match(/(^|;)\\s*(application|text)\\/xml\\b/);\r",
+                  "\r",
+                  "    // Body starts with \"<\" (XML) and is not empty\r",
+                  "    const body = pm.response.text().trim();\r",
+                  "    pm.expect(body[0]).to.equal(\"<\"); \r",
+                  "});\r",
+                  "\r",
+                  "const cheerio = require(\"cheerio\");\r",
+                  "const $ = cheerio.load(pm.response.text(), { xmlMode: true });\r",
+                  "\r",
+                  "pm.test(\"Response is a list with at least one item\", () => {\r",
+                  "    const root = $(\"ArrayOfCityWithoutPointsOfInterestDto\");\r",
+                  "    pm.expect(root.length).to.equal(1);\r",
+                  "\r",
+                  "    const items = root.children(\"CityWithoutPointsOfInterestDto\");\r",
+                  "    pm.expect(items.length).to.be.greaterThan(0);\r",
+                  "\r",
+                  "    const first = items.first();\r",
+                  "\r",
+                  "    pm.expect(first.children(\"Id\").text()).to.not.be.empty;\r",
+                  "    pm.expect(first.children(\"Name\").text()).to.not.be.empty;\r",
+                  "    pm.expect(first.children(\"Description\").text()).to.not.be.empty;\r",
+                  "\r",
+                  "    pm.expect(first.children(\"NumberOfPointsOfInterest\").length).to.equal(0);\r",
+                  "    pm.expect(first.children(\"PointsOfInterest\").length).to.equal(0);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "https://localhost:{{portNumber}}/api/v1/cities",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "{{portNumber}}",
+              "path": [
+                "api",
+                "v1",
+                "cities"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cities (406 Not acceptable)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 406\", () => pm.response.to.have.status(406));"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/pdf",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://localhost:{{portNumber}}/api/v1/cities",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "{{portNumber}}",
+              "path": [
+                "api",
+                "v1",
+                "cities"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "City",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));\r",
+                  "\r",
+                  "pm.test(\"Response must be valid and have a body\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "    pm.response.to.be.json;\r",
+                  "});\r",
+                  "\r",
+                  "const jsonResponse = preRequestCollectionUtils.TryParseJSON(pm.response);\r",
+                  "\r",
+                  "pm.test(\"Response item has properties of a City\", function () {\r",
+                  "    var city = jsonResponse;\r",
+                  "\r",
+                  "    pm.expect(city).to.have.property(\"id\");\r",
+                  "    pm.expect(city).to.have.property(\"name\");\r",
+                  "    pm.expect(city).to.have.property(\"description\");\r",
+                  "    pm.expect(city).not.to.have.property(\"numberOfPointsOfInterest\");\r",
+                  "    pm.expect(city).not.to.have.property(\"pointsOfInterest\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:{{portNumber}}/api/v1/cities/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "{{portNumber}}",
+              "path": [
+                "api",
+                "v1",
+                "cities",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "City (404 Not found)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 404\", () => pm.response.to.have.status(404));\r",
+                  "\r",
+                  "var jsonResponse = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Response item has properties of a Problem Details\", function () {\r",
+                  "    pm.expect(jsonResponse).to.have.property(\"type\");\r",
+                  "    pm.expect(jsonResponse).to.have.property(\"title\");\r",
+                  "    pm.expect(jsonResponse).to.have.property(\"status\");\r",
+                  "    pm.expect(jsonResponse).to.have.property(\"traceId\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:{{portNumber}}/api/v1/cities/476547654",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "{{portNumber}}",
+              "path": [
+                "api",
+                "v1",
+                "cities",
+                "476547654"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "City (include Point of Interest)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response must be valid and have a body\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "    pm.response.to.be.json;\r",
+                  "});\r",
+                  "\r",
+                  "const jsonResponse = preRequestCollectionUtils.TryParseJSON(pm.response);\r",
+                  "\r",
+                  "pm.test(\"Response item has properties of a City\", function () {\r",
+                  "    var city = jsonResponse;\r",
+                  "\r",
+                  "    pm.expect(city).to.have.property(\"id\");\r",
+                  "    pm.expect(city).to.have.property(\"name\");\r",
+                  "    pm.expect(city).to.have.property(\"description\");\r",
+                  "    pm.expect(city).to.have.property(\"numberOfPointsOfInterest\");\r",
+                  "    pm.expect(city).to.have.property(\"pointsOfInterest\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:{{portNumber}}/api/v1/cities/1?includePointsOfInterest=true",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "{{portNumber}}",
+              "path": [
+                "api",
+                "v1",
+                "cities",
+                "1"
+              ],
+              "query": [
+                {
+                  "key": "includePointsOfInterest",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cities, filtered",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));\r",
+                  "\r",
+                  "pm.test(\"Response must be valid and have a body\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "    pm.response.to.be.json;\r",
+                  "});\r",
+                  "\r",
+                  "const expectedName = (pm.request.url.query.get(\"name\") || \"\").trim();\r",
+                  "pm.test(\"Query param 'name' is provided\", () => {\r",
+                  "    pm.expect(expectedName, \"name query param\").to.not.equal(\"\");\r",
+                  "});\r",
+                  "\r",
+                  "const jsonResponse = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Response is an array\", () => {\r",
+                  "    pm.expect(jsonResponse).to.be.an(\"array\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Each item has City properties\", () => {\r",
+                  "    jsonResponse.forEach((city, i) => {\r",
+                  "        pm.expect(city, `item[${i}]`).to.have.property(\"id\");\r",
+                  "        pm.expect(city, `item[${i}]`).to.have.property(\"name\");\r",
+                  "        pm.expect(city, `item[${i}]`).to.have.property(\"description\");\r",
+                  "\r",
+                  "        pm.expect(city, `item[${i}]`).not.to.have.property(\"numberOfPointsOfInterest\");\r",
+                  "        pm.expect(city, `item[${i}]`).not.to.have.property(\"pointsOfInterest\");\r",
+                  "    });\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Filtering by name works (every item matches filter)\", () => {\r",
+                  "    const expected = expectedName.toLowerCase();\r",
+                  "\r",
+                  "    jsonResponse.forEach((city, i) => {\r",
+                  "        pm.expect(city).to.have.property(\"name\");\r",
+                  "        const actual = String(city.name).toLowerCase();\r",
+                  "\r",
+                  "        pm.expect(\r",
+                  "            actual,\r",
+                  "            `item[${i}].name should contain '${expectedName}'`\r",
+                  "        ).to.include(expected);\r",
+                  "    });\r",
+                  "});\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:{{portNumber}}/api/v1/cities?name=Antwerp",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "{{portNumber}}",
+              "path": [
+                "api",
+                "v1",
+                "cities"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "Antwerp"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cities, searched",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));\r",
+                  "\r",
+                  "pm.test(\"response must be valid and have a body\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "    pm.response.to.be.json;\r",
+                  "});\r",
+                  "\r",
+                  "const searchQuery = (pm.request.url.query.get(\"searchQuery\") || \"\").trim();\r",
+                  "\r",
+                  "pm.test(\"Query param 'searchQuery' is provided\", () => {\r",
+                  "    pm.expect(searchQuery, \"searchQuery query param\").to.not.equal(\"\");\r",
+                  "});\r",
+                  "\r",
+                  "const jsonResponse = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Response is an array\", () => {\r",
+                  "    pm.expect(jsonResponse).to.be.an(\"array\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Each item has City properties\", () => {\r",
+                  "    jsonResponse.forEach((city, i) => {\r",
+                  "        pm.expect(city, `item[${i}]`).to.have.property(\"id\");\r",
+                  "        pm.expect(city, `item[${i}]`).to.have.property(\"name\");\r",
+                  "        pm.expect(city, `item[${i}]`).to.have.property(\"description\");\r",
+                  "\r",
+                  "        pm.expect(city, `item[${i}]`).not.to.have.property(\"numberOfPointsOfInterest\");\r",
+                  "        pm.expect(city, `item[${i}]`).not.to.have.property(\"pointsOfInterest\");\r",
+                  "    });\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Search works: each item matches name or description Contains(searchQuery)\", () => {\r",
+                  "    jsonResponse.forEach((city, i) => {\r",
+                  "        const name = city.name ?? \"\";\r",
+                  "        const description = city.description;\r",
+                  "\r",
+                  "        const matchesName = String(name).includes(searchQuery);\r",
+                  "        const matchesDescription = (description !== null && description !== undefined)\r",
+                  "            ? String(description).includes(searchQuery)\r",
+                  "            : false;\r",
+                  "\r",
+                  "        pm.expect(\r",
+                  "            matchesName || matchesDescription,\r",
+                  "            `item[${i}] must match: name contains '${searchQuery}' OR description contains '${searchQuery}'`\r",
+                  "        ).to.be.true;\r",
+                  "    });\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:{{portNumber}}/api/v1/cities?searchQuery=the",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "{{portNumber}}",
+              "path": [
+                "api",
+                "v1",
+                "cities"
+              ],
+              "query": [
+                {
+                  "key": "searchQuery",
+                  "value": "the"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cities, filtered, searched",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));\r",
+                  "\r",
+                  "pm.test(\"response must be valid and have a body\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "    pm.response.to.be.json;\r",
+                  "});\r",
+                  "\r",
+                  "const nameFilter = (pm.request.url.query.get(\"name\") || \"\").trim();\r",
+                  "const searchQuery = (pm.request.url.query.get(\"searchQuery\") || \"\").trim();\r",
+                  "\r",
+                  "pm.test(\"Query params 'name' and 'searchQuery' are provided\", () => {\r",
+                  "    pm.expect(nameFilter, \"name query param\").to.not.equal(\"\");\r",
+                  "    pm.expect(searchQuery, \"searchQuery query param\").to.not.equal(\"\");\r",
+                  "});\r",
+                  "\r",
+                  "const jsonResponse = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Response is an array\", () => {\r",
+                  "    pm.expect(jsonResponse).to.be.an(\"array\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response is not empty for provided filters\", () => {\r",
+                  "    pm.expect(jsonResponse.length).to.be.greaterThan(0);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Each item has City properties\", () => {\r",
+                  "    jsonResponse.forEach((city, i) => {\r",
+                  "        pm.expect(city, `item[${i}]`).to.have.property(\"id\");\r",
+                  "        pm.expect(city, `item[${i}]`).to.have.property(\"name\");\r",
+                  "        pm.expect(city, `item[${i}]`).to.have.property(\"description\");\r",
+                  "\r",
+                  "        pm.expect(city, `item[${i}]`).not.to.have.property(\"numberOfPointsOfInterest\");\r",
+                  "        pm.expect(city, `item[${i}]`).not.to.have.property(\"pointsOfInterest\");\r",
+                  "    });\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Name filter works (every item matches name filter)\", () => {\r",
+                  "    const expected = nameFilter.toLowerCase();\r",
+                  "\r",
+                  "    jsonResponse.forEach((city, i) => {\r",
+                  "        const actual = String(city.name ?? \"\").toLowerCase();\r",
+                  "\r",
+                  "        pm.expect(\r",
+                  "            actual,\r",
+                  "            `item[${i}].name should contain '${nameFilter}'`\r",
+                  "        ).to.include(expected);\r",
+                  "    });\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Search works: each item matches name or description Contains(searchQuery)\", () => {\r",
+                  "    jsonResponse.forEach((city, i) => {\r",
+                  "        const name = city.name ?? \"\";\r",
+                  "        const description = city.description; // может быть null\r",
+                  "\r",
+                  "        const matchesName = String(name).includes(searchQuery); // case-sensitive\r",
+                  "        const matchesDescription = (description !== null && description !== undefined)\r",
+                  "            ? String(description).includes(searchQuery) // case-sensitive\r",
+                  "            : false;\r",
+                  "\r",
+                  "        pm.expect(\r",
+                  "            matchesName || matchesDescription,\r",
+                  "            `item[${i}] must match searchQuery '${searchQuery}' in name OR description`\r",
+                  "        ).to.be.true;\r",
+                  "    });\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:{{portNumber}}/api/v1/cities?name=Antwerp&searchQuery=the",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "{{portNumber}}",
+              "path": [
+                "api",
+                "v1",
+                "cities"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "Antwerp"
+                },
+                {
+                  "key": "searchQuery",
+                  "value": "the"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cities, paged",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));\r",
+                  "\r",
+                  "pm.test(\"Response must be valid and have a body\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "    pm.response.to.be.json;\r",
+                  "});\r",
+                  "\r",
+                  "const pageSize = parseInt(pm.request.url.query.get(\"pageSize\"), 10);\r",
+                  "const pageNumber = parseInt(pm.request.url.query.get(\"pageNumber\"), 10);\r",
+                  "\r",
+                  "pm.test(\"Query params pageSize/pageNumber are provided and valid\", () => {\r",
+                  "    pm.expect(Number.isInteger(pageSize) && pageSize > 0, \"pageSize\").to.be.true;\r",
+                  "    pm.expect(Number.isInteger(pageNumber) && pageNumber > 0, \"pageNumber\").to.be.true;\r",
+                  "});\r",
+                  "\r",
+                  "const jsonResponse = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Response is an array\", () => {\r",
+                  "    pm.expect(jsonResponse).to.be.an(\"array\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response respects pageSize\", () => {\r",
+                  "    pm.expect(jsonResponse.length, \"items count must be <= pageSize\").to.be.at.most(pageSize);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"X-Pagination header exists\", () => {\r",
+                  "    pm.expect(pm.response.headers.has(\"X-Pagination\")).to.be.true;\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"X-Pagination header is valid JSON\", () => {\r",
+                  "    const headerValue = pm.response.headers.get(\"X-Pagination\");\r",
+                  "    pm.expect(headerValue, \"X-Pagination value\").to.be.a(\"string\").and.not.equal(\"\");\r",
+                  "\r",
+                  "    let parsed;\r",
+                  "    pm.expect(() => { parsed = JSON.parse(headerValue); }).to.not.throw();\r",
+                  "\r",
+                  "    pm.expect(parsed).to.have.property(\"TotalItemCount\");\r",
+                  "    pm.expect(parsed).to.have.property(\"TotalPageCount\");\r",
+                  "    pm.expect(parsed).to.have.property(\"PageSize\");\r",
+                  "    pm.expect(parsed).to.have.property(\"CurrentPage\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"X-Pagination has correct values for this request\", () => {\r",
+                  "    const headerValue = pm.response.headers.get(\"X-Pagination\");\r",
+                  "    const p = JSON.parse(headerValue);\r",
+                  "\r",
+                  "    pm.expect(p.PageSize, \"PageSize\").to.equal(pageSize);\r",
+                  "    pm.expect(p.CurrentPage, \"CurrentPage\").to.equal(pageNumber);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:{{portNumber}}/api/v1/cities?pageSize=1&pageNumber=2",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "{{portNumber}}",
+              "path": [
+                "api",
+                "v1",
+                "cities"
+              ],
+              "query": [
+                {
+                  "key": "pageSize",
+                  "value": "1"
+                },
+                {
+                  "key": "pageNumber",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "PointOfInterest",
+      "item": [
+        {
+          "name": "GET",
+          "item": [
+            {
+              "name": "Points of Interest",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));\r",
+                      "\r",
+                      "pm.test(\"Response must be valid Json and have a body\", function () {\r",
+                      "    pm.response.to.be.ok;\r",
+                      "    pm.response.to.be.withBody;\r",
+                      "    pm.response.to.be.json;\r",
+                      "});\r",
+                      "\r",
+                      "const jsonResponse = preRequestCollectionUtils.TryParseJSON(pm.response);\r",
+                      "\r",
+                      "pm.test(\"Response is a list with at least one item.\", function () {\r",
+                      "    pm.expect(jsonResponse).to.be.an(\"array\");\r",
+                      "    pm.expect(jsonResponse.length).to.greaterThan(0);\r",
+                      "\r",
+                      "    pm.test(\"Response list item has properties of a City\", function () {\r",
+                      "        let city = jsonResponse[0]; //check first object in list\r",
+                      "\r",
+                      "        pm.expect(city).to.have.property(\"id\");\r",
+                      "        pm.expect(city).to.have.property(\"name\");\r",
+                      "        pm.expect(city).to.have.property(\"description\");\r",
+                      "    })\r",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "{{portNumber}}",
+                  "path": [
+                    "api",
+                    "v2",
+                    "cities",
+                    "3",
+                    "pointsofinterest"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Points of Interest (unexisting City)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 404\", () => pm.response.to.have.status(404));\r",
+                      "\r",
+                      "var jsonResponse = pm.response.json();\r",
+                      "\r",
+                      "pm.test(\"Response item has properties of a Problem Details\", function () {\r",
+                      "    pm.expect(jsonResponse).to.have.property(\"type\");\r",
+                      "    pm.expect(jsonResponse).to.have.property(\"title\");\r",
+                      "    pm.expect(jsonResponse).to.have.property(\"status\");\r",
+                      "    pm.expect(jsonResponse).to.have.property(\"traceId\");\r",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://localhost:{{portNumber}}/api/v2/cities/4/pointsofinterest",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "{{portNumber}}",
+                  "path": [
+                    "api",
+                    "v2",
+                    "cities",
+                    "4",
+                    "pointsofinterest"
+                  ]
+                },
+                "description": "Should return 404 NotFound"
+              },
+              "response": []
+            },
+            {
+              "name": "Point of Interest",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));\r",
+                      "\r",
+                      "pm.test(\"Response must be valid and have a body\", function () {\r",
+                      "    pm.response.to.be.ok;\r",
+                      "    pm.response.to.be.withBody;\r",
+                      "    pm.response.to.be.json;\r",
+                      "});\r",
+                      "\r",
+                      "const jsonResponse = preRequestCollectionUtils.TryParseJSON(pm.response);\r",
+                      "\r",
+                      "pm.test(\"Response item has properties of a City\", function () {\r",
+                      "    var city = jsonResponse;\r",
+                      "\r",
+                      "    pm.expect(city).to.have.property(\"id\");\r",
+                      "    pm.expect(city).to.have.property(\"name\");\r",
+                      "    pm.expect(city).to.have.property(\"description\");\r",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://localhost:{{portNumber}}/api/v2/cities/1/pointsofinterest/2",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "{{portNumber}}",
+                  "path": [
+                    "api",
+                    "v2",
+                    "cities",
+                    "1",
+                    "pointsofinterest",
+                    "2"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Point of Interest (404 unexisting City)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 404\", () => pm.response.to.have.status(404));"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://localhost:{{portNumber}}/api/cities/4345/pointsofinterest/1",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "{{portNumber}}",
+                  "path": [
+                    "api",
+                    "cities",
+                    "4345",
+                    "pointsofinterest",
+                    "1"
+                  ]
+                },
+                "description": "Should return 404 NotFound"
+              },
+              "response": []
+            },
+            {
+              "name": "Point of Interest (unexisting Point of Interest)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 404\", () => pm.response.to.have.status(404));"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://localhost:{{portNumber}}/api/cities/1/pointsofinterest/105875",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "{{portNumber}}",
+                  "path": [
+                    "api",
+                    "cities",
+                    "1",
+                    "pointsofinterest",
+                    "105875"
+                  ]
+                },
+                "description": "Should return 404 NotFound"
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "POST",
+          "item": [
+            {
+              "name": "Point of Interest",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 201 (Created)\", () => pm.response.to.have.status(201));\r",
+                      "\r",
+                      "pm.test(\"Response must be valid and have a body\", () => {\r",
+                      "    pm.response.to.be.withBody;\r",
+                      "    pm.response.to.be.json;\r",
+                      "});\r",
+                      "\r",
+                      "const json = pm.response.json();\r",
+                      "\r",
+                      "pm.test(\"Response has PointOfInterest properties\", () => {\r",
+                      "    pm.expect(json).to.have.property(\"id\");\r",
+                      "    pm.expect(json).to.have.property(\"name\");\r",
+                      "    pm.expect(json).to.have.property(\"description\");\r",
+                      "});\r",
+                      "\r",
+                      "pm.test(\"id is a positive integer\", () => {\r",
+                      "    pm.expect(json.id).to.be.a(\"number\");\r",
+                      "    pm.expect(Number.isInteger(json.id)).to.be.true;\r",
+                      "    pm.expect(json.id).to.be.greaterThan(0);\r",
+                      "});\r",
+                      "\r",
+                      "\r",
+                      "const requestBody = pm.request.body && pm.request.body.raw\r",
+                      "    ? JSON.parse(pm.request.body.raw)\r",
+                      "    : null;\r",
+                      "\r",
+                      "pm.test(\"Response matches request payload\", () => {\r",
+                      "    pm.expect(requestBody).to.not.equal(null);\r",
+                      "\r",
+                      "    pm.expect(json.name).to.equal(requestBody.name);\r",
+                      "    pm.expect(json.description).to.equal(requestBody.description);\r",
+                      "});\r",
+                      "\r",
+                      "pm.collectionVariables.set(\"createdPointOfInterestId\", String(json.id));\r",
+                      "\r",
+                      "pm.test(\"Created PointOfInterest id is saved to collection variable\", () => {\r",
+                      "    const saved = pm.collectionVariables.get(\"createdPointOfInterestId\");\r",
+                      "    pm.expect(saved, \"createdPointOfInterestId\").to.equal(String(json.id));\r",
+                      "});\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Newly created\",\n    \"description\": \"This point of interest will be modified and during postman collection run.\"\n}"
+                },
+                "url": {
+                  "raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "{{portNumber}}",
+                  "path": [
+                    "api",
+                    "v2",
+                    "cities",
+                    "3",
+                    "pointsofinterest"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Point of Interest (can't deserialize)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 400 (Bad Request)\", () => {\r",
+                      "    pm.response.to.have.status(400);\r",
+                      "});\r",
+                      "\r",
+                      "pm.test(\"response is JSON and has a body\", () => {\r",
+                      "    pm.response.to.be.withBody;\r",
+                      "    pm.response.to.be.json;\r",
+                      "});\r",
+                      "\r",
+                      "const json = pm.response.json();\r",
+                      "\r",
+                      "pm.test(\"ProblemDetails shape is present\", () => {\r",
+                      "    pm.expect(json).to.have.property(\"type\");\r",
+                      "    pm.expect(json).to.have.property(\"title\");\r",
+                      "    pm.expect(json).to.have.property(\"status\", 400);\r",
+                      "    pm.expect(json).to.have.property(\"traceId\");\r",
+                      "    pm.expect(json).to.have.property(\"errors\");\r",
+                      "});\r",
+                      "\r",
+                      "pm.test(\"Validation errors contain expected messages\", () => {\r",
+                      "    pm.expect(json.errors).to.be.an(\"object\");\r",
+                      "\r",
+                      "    // \"\" : [\"A non-empty request body is required.\"]\r",
+                      "    pm.expect(json.errors).to.have.property(\"\");\r",
+                      "    pm.expect(json.errors[\"\"]).to.be.an(\"array\");\r",
+                      "    pm.expect(json.errors[\"\"][0]).to.include(\"A non-empty request body is required.\");\r",
+                      "\r",
+                      "    // \"pointOfInterest\": [\"The pointOfInterest field is required.\"]\r",
+                      "    pm.expect(json.errors).to.have.property(\"pointOfInterest\");\r",
+                      "    pm.expect(json.errors.pointOfInterest).to.be.an(\"array\");\r",
+                      "    pm.expect(json.errors.pointOfInterest[0]).to.include(\"The pointOfInterest field is required.\");\r",
+                      "});\r",
+                      "\r",
+                      "pm.test(\"ProblemDetails 'type' looks like RFC 7231 6.5.1\", () => {\r",
+                      "    pm.expect(String(json.type)).to.include(\"rfc7231\");\r",
+                      "    pm.expect(String(json.type)).to.include(\"6.5.1\");\r",
+                      "});\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "{{portNumber}}",
+                  "path": [
+                    "api",
+                    "v2",
+                    "cities",
+                    "3",
+                    "pointsofinterest"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Point of Interest (missing name, long description)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 400 (Bad Request)\", () => {\r",
+                      "    pm.response.to.have.status(400);\r",
+                      "});\r",
+                      "\r",
+                      "pm.test(\"Response is JSON and has a body\", () => {\r",
+                      "    pm.response.to.be.withBody;\r",
+                      "    pm.response.to.be.json;\r",
+                      "});\r",
+                      "\r",
+                      "const json = pm.response.json();\r",
+                      "\r",
+                      "pm.test(\"ProblemDetails shape is present\", () => {\r",
+                      "    pm.expect(json).to.have.property(\"type\");\r",
+                      "    pm.expect(json).to.have.property(\"title\");\r",
+                      "    pm.expect(json).to.have.property(\"status\", 400);\r",
+                      "    pm.expect(json).to.have.property(\"traceId\");\r",
+                      "    pm.expect(json).to.have.property(\"errors\");\r",
+                      "});\r",
+                      "\r",
+                      "pm.test(\"Validation errors contain expected fields\", () => {\r",
+                      "    pm.expect(json.errors).to.be.an(\"object\");\r",
+                      "    pm.expect(json.errors).to.have.property(\"Name\");\r",
+                      "    pm.expect(json.errors).to.have.property(\"Description\");\r",
+                      "\r",
+                      "    pm.expect(json.errors.Name).to.be.an(\"array\").and.not.empty;\r",
+                      "    pm.expect(json.errors.Description).to.be.an(\"array\").and.not.empty;\r",
+                      "});\r",
+                      "\r",
+                      "pm.test(\"Validation messages match expectations\", () => {\r",
+                      "    // Name: \"You should provide a name value.\"\r",
+                      "    pm.expect(json.errors.Name.join(\" | \"))\r",
+                      "        .to.include(\"You should provide a name value.\");\r",
+                      "\r",
+                      "    const descCombined = json.errors.Description.join(\" | \");\r",
+                      "    pm.expect(descCombined).to.include(\"Description\");\r",
+                      "    pm.expect(descCombined).to.include(\"maximum length\");\r",
+                      "    pm.expect(descCombined).to.include(\"200\");\r",
+                      "});\r",
+                      "\r",
+                      "pm.test(\"ProblemDetails 'type' looks like RFC 7231 6.5.1\", () => {\r",
+                      "    pm.expect(String(json.type)).to.include(\"rfc7231\");\r",
+                      "    pm.expect(String(json.type)).to.include(\"6.5.1\");\r",
+                      "});\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"invalidProperty\": 1,\n    \"description\": \"Scallywag holystone landlubber or just lubber yardarm tackle Shiver me timbers cog heave down provost Admiral of the Black. Hornswaggle spanker man-of-war yo-ho-ho mutiny splice the main brace jack keelhaul fire ship Corsair. Bounty prow walk the plank lugsail port loot pirate bilge jib scuppers.  Sutler lee matey sloop plunder splice the main brace interloper Yellow Jack maroon quarter. Draft Privateer run a shot across the bow chandler gaff broadside Pirate Round jolly boat skysail bilge. Chandler mutiny careen execution dock splice the main brace bring a spring upon her cable lass run a rig grog blossom smartly.  Gangplank Davy Jones' Locker plunder overhaul draught pinnace blow the man down bring a spring upon her cable no prey, no pay keel. Gold Road gaff grapple sutler scurvy aft bilge come about coffer gunwalls. Scuttle list Davy Jones' Locker pinnace chase trysail draught Pirate Round Jolly Roger log.\"\n}\n"
+                },
+                "url": {
+                  "raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "{{portNumber}}",
+                  "path": [
+                    "api",
+                    "v2",
+                    "cities",
+                    "3",
+                    "pointsofinterest"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "PUT",
+          "item": [
+            {
+              "name": "Point of Interest",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 204 (No Content)\", () => {\r",
+                      "    pm.response.to.have.status(204);\r",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Updated - newly created\",\n    \"description\": \"This point of interest will be modified and during postman collection run..\"\n}"
+                },
+                "url": {
+                  "raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/{{createdPointOfInterestId}}",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "{{portNumber}}",
+                  "path": [
+                    "api",
+                    "v2",
+                    "cities",
+                    "3",
+                    "pointsofinterest",
+                    "{{createdPointOfInterestId}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Point of Interest (no description)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 204 (No Content)\", () => pm.response.to.have.status(204));"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Updated again - newly created\"\n}"
+                },
+                "url": {
+                  "raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/{{createdPointOfInterestId}}",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "{{portNumber}}",
+                  "path": [
+                    "api",
+                    "v2",
+                    "cities",
+                    "3",
+                    "pointsofinterest",
+                    "{{createdPointOfInterestId}}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "PATCH",
+          "item": [
+            {
+              "name": "PATCH Point of Interest",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 204 (No Content)\", () => pm.response.to.have.status(204));"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n    {\n      \"op\": \"replace\",\n      \"path\": \"/name\",\n      \"value\": \"Updated with patch - newly created\"\n    }\n]"
+                },
+                "url": {
+                  "raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/{{createdPointOfInterestId}}",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "{{portNumber}}",
+                  "path": [
+                    "api",
+                    "v2",
+                    "cities",
+                    "3",
+                    "pointsofinterest",
+                    "{{createdPointOfInterestId}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "PATCH Point of Interest (update multiple)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 204 (No Content)\", () => pm.response.to.have.status(204));"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n    {\n      \"op\": \"replace\",\n      \"path\": \"/name\",\n      \"value\": \"Updated with patch second time - newly created\"\n    },\n    {\n      \"op\": \"replace\",\n      \"path\": \"/description\",\n      \"value\": \"Updated with patch - Description\"\n    }\n]"
+                },
+                "url": {
+                  "raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/{{createdPointOfInterestId}}",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "{{portNumber}}",
+                  "path": [
+                    "api",
+                    "v2",
+                    "cities",
+                    "3",
+                    "pointsofinterest",
+                    "{{createdPointOfInterestId}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "PATCH Point of Interest (invalid property)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 400 (Bad Request)\", () => pm.response.to.have.status(400));"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n    {\n      \"op\": \"replace\",\n      \"path\": \"/invalidproperty\",\n      \"value\": \"Updated - Central Park\"\n    }\n]"
+                },
+                "url": {
+                  "raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/{{createdPointOfInterestId}}",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "{{portNumber}}",
+                  "path": [
+                    "api",
+                    "v2",
+                    "cities",
+                    "3",
+                    "pointsofinterest",
+                    "{{createdPointOfInterestId}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "PATCH Point of Interest (400 remove name)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 400 (Bad Request)\", () => pm.response.to.have.status(400));"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n    {\n      \"op\": \"remove\",\n      \"path\": \"/name\"\n    }\n]"
+                },
+                "url": {
+                  "raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/{{createdPointOfInterestId}}",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "{{portNumber}}",
+                  "path": [
+                    "api",
+                    "v2",
+                    "cities",
+                    "3",
+                    "pointsofinterest",
+                    "{{createdPointOfInterestId}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "PATCH Point of Interest (remove description)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 204 (No Content)\", () => pm.response.to.have.status(204));"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n    {\n      \"op\": \"remove\",\n      \"path\": \"/description\"\n    }\n]"
+                },
+                "url": {
+                  "raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/{{createdPointOfInterestId}}",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "{{portNumber}}",
+                  "path": [
+                    "api",
+                    "v2",
+                    "cities",
+                    "3",
+                    "pointsofinterest",
+                    "{{createdPointOfInterestId}}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Point of Interest",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 204 (No Content)\", () => pm.response.to.have.status(204));"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://localhost:{{portNumber}}/api/v2/cities/3/pointsofinterest/{{createdPointOfInterestId}}",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "{{portNumber}}",
+              "path": [
+                "api",
+                "v2",
+                "cities",
+                "3",
+                "pointsofinterest",
+                "{{createdPointOfInterestId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "File",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200 (OK)\", () => pm.response.to.have.status(200));"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/xml"
+          }
+        ],
+        "url": {
+          "raw": "https://localhost:{{portNumber}}/api/files/1",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "{{portNumber}}",
+          "path": [
+            "api",
+            "files",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          "preRequestCollectionUtils = {\r",
+          "\r",
+          "    /// Versucht den Body aus einem JSON in ein OBjekt zu parsen.\r",
+          "    TryParseJSON:  function(response) {\r",
+          "        try {\r",
+          "            return response.json();\r",
+          "        } catch (error) {\r",
+          "            console.log(pm.response);\r",
+          "            console.error(\"Error while parsing JSON.\");\r",
+          "        }\r",
+          "    }\r",
+          "}"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "portNumber",
+      "value": ""
+    },
+    {
+      "key": "createdPointOfInterestId",
+      "value": "",
+      "type": "default"
+    }
+  ]
 }
