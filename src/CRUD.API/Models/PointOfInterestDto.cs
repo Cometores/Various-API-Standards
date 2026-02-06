@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace CRUD.API.Models;
+﻿namespace CRUD.API.Models;
 
 public class PointOfInterestDto
 {

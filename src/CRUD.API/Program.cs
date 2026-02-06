@@ -1,8 +1,7 @@
 using System.Reflection;
 using System.Text;
 using CRUD.API;
-using CRUD.API.DbContexts;
-using CRUD.API.Entities;
+using CRUD.API.Data;
 using CRUD.API.Services;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
@@ -63,11 +62,11 @@ builder.Services.AddSwaggerGen(setupAction =>
 builder.Services.AddSingleton<FileExtensionContentTypeProvider>();
 
 /* Dummy data */
-builder.Services.AddSingleton<CitiesDataStore>();
+builder.Services.AddSingleton<CitiesInMemoryDataStore>();
 
 /* SQLite Database */
 // will register with a scoped lifetime
-builder.Services.AddDbContext<CityInfoContext>(
+builder.Services.AddDbContext<CitiesDbContext>(
     dbContextOptions => dbContextOptions.UseSqlite(
         builder.Configuration["ConnectionStrings:CityInfoDBConnectionString"]));
 

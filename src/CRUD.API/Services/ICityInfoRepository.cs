@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using CRUD.API.DbContexts;
-using CRUD.API.Entities;
+﻿using CRUD.API.Entities;
 
 namespace CRUD.API.Services;
 

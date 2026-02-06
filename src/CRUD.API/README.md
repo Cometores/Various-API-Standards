@@ -27,14 +27,19 @@ You can use either [Swagger](#swagger) or [Postman](#postman) to play with the A
 
 ### Postman
 Import the collection from `CRUD.API.postman_collection.json` [file](CRUD.API.postman_collection.json).
-![postman.png](../../docs/postman.png)
+
+![CRUD.API.postman.png](../../docs/CRUD.API.postman.png)
 
 You need to run authentication first, and token will be automatically stored to the collection variables.
 Use the requests in the given order, as `PUT`, `PATCH` and `DELETE` will work with your created data.
 
+You can also run the whole collection in the **Postman Collection Runner** – the tests are implemented in **JavaScript** and validate the full workflow.
+
+![CRUD.API.postmanRunnable.gif](../../docs/CRUD.API.postmanRunnable.gif)
 
 ### Swagger
 Accessible at [http://localhost:7126/swagger](https://localhost:7126/swagger/index.html).
+
 ![swagger.png](../../docs/swagger.png)
 
 You need to authenticate first.
@@ -89,6 +94,6 @@ The application implements a layered architecture for data access using the foll
 - Logging -`Serilog`
     - `serilog.sinks.file` - creates file `logs/cityinfoYYYMMDD.txt`
     - `serilog.sinks.console`
-- Dummy mail service — custom-created service
+- Dummy mail service - custom-created service
     - different implementations for development and production
     - mail addresses stored in configuration file

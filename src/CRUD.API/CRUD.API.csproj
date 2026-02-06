@@ -35,6 +35,8 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
       <None Remove="logs\**" />
+      <None Remove="CityInfo.db-shm" />
+      <None Remove="CityInfo.db-wal" />
     </ItemGroup>
 
     <ItemGroup>

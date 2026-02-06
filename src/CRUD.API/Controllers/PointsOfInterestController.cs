@@ -2,8 +2,8 @@
 using CRUD.API.Models;
 using CRUD.API.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CRUD.API.Controllers;
 

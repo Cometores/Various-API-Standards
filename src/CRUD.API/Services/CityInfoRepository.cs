@@ -1,4 +1,4 @@
-﻿using CRUD.API.DbContexts;
+﻿using CRUD.API.Data;
 using CRUD.API.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,22 +6,22 @@ namespace CRUD.API.Services;
 
 public class CityInfoRepository : ICityInfoRepository
 {
-    private readonly CityInfoContext _context;
+    private readonly CitiesDbContext _dbContext;
 
-    public CityInfoRepository(CityInfoContext context)
+    public CityInfoRepository(CitiesDbContext dbContext)
     {
-        _context = context ?? throw new ArgumentNullException(nameof(context));
+        _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
     }
 
     public async Task<IEnumerable<City>> GetCitiesAsync()
     {
-        return await _context.Cities.OrderBy(c => c.Name).ToListAsync();
+        return await _dbContext.Cities.OrderBy(c => c.Name).ToListAsync();
     }
     
     public async Task<(IEnumerable<City>, PaginationMetadata)> GetCitiesAsync(string? name, string? searchQuery, int pageNumber, int pageSize)
     {
         // collection to start from
-        var collection = _context.Cities as IQueryable<City>;
+        var collection = _dbContext.Cities as IQueryable<City>;
 
         if (!string.IsNullOrWhiteSpace(name))
         {
@@ -52,27 +52,27 @@ public class CityInfoRepository : ICityInfoRepository
     {
         if (includePointsOfInterest)
         {
-            return await _context.Cities.Include(c => c.PointsOfInterest)
+            return await _dbContext.Cities.Include(c => c.PointsOfInterest)
                 .Where(c => c.Id == cityId).FirstOrDefaultAsync();
         }
-        return await _context.Cities.Where(c => c.Id == cityId).FirstOrDefaultAsync();
+        return await _dbContext.Cities.Where(c => c.Id == cityId).FirstOrDefaultAsync();
     }
 
     public async Task<bool> CityExistsAsync(int cityId)
     {
-        return await _context.Cities.AnyAsync(c => c.Id == cityId);
+        return await _dbContext.Cities.AnyAsync(c => c.Id == cityId);
     }
 
     public async Task<IEnumerable<PointOfInterest>> GetPointsOfInterestForCityAsync(int cityId)
     {
-        return await _context.PointsOfInterest
+        return await _dbContext.PointsOfInterest
             .Where(p => p.CityId == cityId)
             .ToListAsync();
     }
 
     public async Task<PointOfInterest?> GetPointOfInterestForCityAsync(int cityId, int pointOfInterestId)
     {
-        return await _context.PointsOfInterest
+        return await _dbContext.PointsOfInterest
             .Where(p => p.CityId == cityId && p.Id == pointOfInterestId)
             .FirstOrDefaultAsync();
     }
@@ -88,16 +88,16 @@ public class CityInfoRepository : ICityInfoRepository
     
     public void DeletePointOfInterest(PointOfInterest pointOfInterest)
     {
-        _context.PointsOfInterest.Remove(pointOfInterest);
+        _dbContext.PointsOfInterest.Remove(pointOfInterest);
     }
 
     public async Task<bool> CityNameMatchesCityId(string? cityName, int cityId)
     {
-        return await _context.Cities.AnyAsync(c => c.Id == cityId && c.Name == cityName);
+        return await _dbContext.Cities.AnyAsync(c => c.Id == cityId && c.Name == cityName);
     }
 
     public async Task<bool> SaveChangesAsync()
     {
-        return (await _context.SaveChangesAsync() >= 0);
+        return (await _dbContext.SaveChangesAsync() >= 0);
     }
 }
