@@ -14,6 +14,7 @@ Postman collections with tests are also attached to the API's folders.
 
 
 
+
 ## CRUD API
 API for getting and managing simple information about cities and their points of interest.</br>
 More information about the API can be found in the [documentation file](./src/CRUD.API/README.md).
@@ -53,17 +54,30 @@ Key features:
 
 
 
-
 ## Restful API
-Inspired by
-[Kevin's Dockx](https://app.pluralsight.com/library/courses/asp-dot-net-core-6-web-api-deep-dive/table-of-contents)
-course from pluralsight.
+API for authors and courses with HATEOAS, data shaping, filtering, paging.</br>
+More information about the API can be found in the [documentation file](./src/CourseLibrary.API/README.md).
+
+Key features:
+- **HATEOAS** links + `X-Pagination` metadata
+- **Data shaping** via `fields` & safe sorting via `orderBy`
+- **Filtering**, **searching**, **paging**
+- **JSON Patch** and **XML** formatters
+- **SQLite** database, reset & migrated at startup
+
+
 
 
 ## OData API
-Inspired by
-[Kevin's Dockx](https://app.pluralsight.com/library/courses/building-consistent-restful-api-odata-v4-asp-dot-net-core/table-of-contents)
-course from pluralsight.
+More information about the API can be found in the [documentation file](./src/AirVinyl/README.md).
+
+Key features:
+- OData v4 with **functions**, **actions**, **singleton**
+- **$select**, **$expand**, **$filter**, **$orderby**, **$count**
+- Contained navigation: People → VinylRecords
+- **SQL Server LocalDB** with seed data
+
+
 
 
 ## Testing an API
@@ -74,6 +88,8 @@ Testing API with xUnit.
 Key features:
 - xUnit
 - SQLite
+
+
 
 
 ## Postman Collections
