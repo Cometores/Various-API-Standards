@@ -6,16 +6,13 @@ namespace CRUD.API.Data;
 public class CitiesInMemoryDataStore
 {
     /// <summary>
-    /// Gets or sets the collection of cities managed by the <see cref="CitiesInMemoryDataStore"/> class.
+    /// Gets the collection of cities managed by the <see cref="CitiesInMemoryDataStore"/> class.
     /// This property provides access to a list of city data including details such as name,
     /// description, and associated points of interest.
     /// </summary>
     public List<CityDto> Cities { get; private set; }
 
-    /// <summary>
-    /// Gets the singleton instance of the <see cref="CitiesInMemoryDataStore"/> class,
-    /// which provides an in-memory data store for managing city data.
-    /// </summary>
+    /// <summary>Gets the singleton instance of the <see cref="CitiesInMemoryDataStore"/> class.</summary>
     public static CitiesInMemoryDataStore Current { get; } = new();
 
     /// <summary>Initializing dummy data.</summary>

@@ -1,6 +1,5 @@
 using System.Reflection;
 using System.Text;
-using CRUD.API;
 using CRUD.API.Data;
 using CRUD.API.Services;
 using Microsoft.AspNetCore.StaticFiles;
