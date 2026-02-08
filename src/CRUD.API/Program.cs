@@ -1,11 +1,4 @@
-using System.Reflection;
-using System.Text;
-using CRUD.API.Data;
-using CRUD.API.Services;
-using Microsoft.AspNetCore.StaticFiles;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
+using CRUD.API;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()
@@ -22,97 +15,9 @@ builder.Host.UseSerilog();
 // builder.Logging.ClearProviders();
 // builder.Logging.AddConsole();
 
-/* Add services to the container */
-builder.Services.AddControllers(options => { options.ReturnHttpNotAcceptable = true; })
-    .AddNewtonsoftJson()
-    .AddXmlDataContractSerializerFormatters();
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(setupAction =>
-{
-    var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
-
-    setupAction.IncludeXmlComments(xmlCommentsFullPath);
-
-    setupAction.AddSecurityDefinition("CityInfoApiBearerAuth", new OpenApiSecurityScheme()
-    {
-        Type = SecuritySchemeType.Http,
-        Scheme = "Bearer",
-        Description = "Input a valid token to access this API"
-    });
-
-    setupAction.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme()
-            {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "CityInfoApiBearerAuth"
-                }
-            },
-            new List<string>()
-        }
-    });
-});
-
-builder.Services.AddSingleton<FileExtensionContentTypeProvider>();
-
-/* Dummy data */
-builder.Services.AddSingleton<CitiesInMemoryDataStore>();
-
-/* SQLite Database */
-// will register with a scoped lifetime
-builder.Services.AddDbContext<CitiesDbContext>(
-    dbContextOptions => dbContextOptions.UseSqlite(
-        builder.Configuration["ConnectionStrings:CityInfoDBConnectionString"]));
-
-builder.Services.AddScoped<ICityInfoRepository, CityInfoRepository>();
-
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-/* Mail service for concrete build */
-#if DEBUG
-builder.Services.AddTransient<IMailService, LocalMailService>();
-#else
-builder.Services.AddTransient<IMailService, CloudMailService>();
-#endif
-
-builder.Services.AddAuthentication("Bearer")
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new()
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Authentication:Issuer"],
-            ValidAudience = builder.Configuration["Authentication:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.ASCII.GetBytes(builder.Configuration["Authentication:SecretForKey"]))
-        };
-    });
-
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("MustBeFromAntwerp", policy =>
-    {
-        policy.RequireAuthenticatedUser();
-        policy.RequireClaim("city", "Antwerp");
-    });
-});
-
-builder.Services.AddApiVersioning(setupAction =>
-{
-    setupAction.AssumeDefaultVersionWhenUnspecified = true;
-    setupAction.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
-    setupAction.ReportApiVersions = true;
-});
+builder.Services.AddProgramDependencies(builder.Configuration);
 
 WebApplication app = builder.Build();
-
 
 /* Configure the HTTP request pipeline */
 if (app.Environment.IsDevelopment())
