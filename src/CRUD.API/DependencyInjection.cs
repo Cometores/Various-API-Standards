@@ -127,7 +127,7 @@ public static class DependencyInjection
 #if DEBUG
         services.AddTransient<IMailService, LocalMailService>();
 #else
-        builder.Services.AddTransient<IMailService, CloudMailService>();
+        services.AddTransient<IMailService, CloudMailService>();
 #endif
 
         return services;
