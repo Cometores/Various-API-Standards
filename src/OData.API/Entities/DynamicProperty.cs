@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using Newtonsoft.Json;
 
-namespace AirVinyl.Entities
+namespace OData.API.Entities
 {
     [Table("DynamicVinylRecordProperties")]
     public class DynamicProperty

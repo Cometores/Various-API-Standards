@@ -1,13 +1,12 @@
-﻿using AirVinyl.Entities;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using OData.API.Entities;
 
-namespace AirVinyl.API.DbContexts
+namespace OData.API.DbContexts
 {
     public class AirVinylDbContext : DbContext
     {
@@ -23,7 +22,8 @@ namespace AirVinyl.API.DbContexts
          
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<DynamicProperty>().HasKey(d => new { d.Key, d.VinylRecord });
+            // composite key uses the FK, not the navigation property
+            modelBuilder.Entity<DynamicProperty>().HasKey(d => new { d.Key, d.VinylRecordId });
             
             // dynamic property
             modelBuilder.Entity<DynamicProperty>().HasData(

@@ -1,19 +1,15 @@
-﻿using AirVinyl.Entities;
-using Microsoft.OData.Edm;
+﻿using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using OData.API.Entities;
 
-namespace AirVinyl.EntityDataModels
+namespace OData.API.EntityDataModels
 {
     public class AirVinylEntityDataModel
     {
         public IEdmModel GetEntityDataModel()
         {
             var builder = new ODataConventionModelBuilder();
-            builder.Namespace = "AirVinyl";
+            builder.Namespace = "OData.API";
             builder.ContainerName = "AirVinylContainer";
 
             builder.EntitySet<Person>("People");
@@ -23,12 +19,12 @@ namespace AirVinyl.EntityDataModels
             var isHighRatedFunction = builder.EntityType<RecordStore>().Function("IsHighRated");
             isHighRatedFunction.Returns<bool>();
             isHighRatedFunction.Parameter<int>("minimumRating");
-            isHighRatedFunction.Namespace = "AirVinyl.Functions";
+            isHighRatedFunction.Namespace = "OData.API.Functions";
 
             var areRatedByFunction = builder.EntityType<RecordStore>().Collection.Function("AreRatedBy");
             areRatedByFunction.ReturnsCollectionFromEntitySet<RecordStore>("RecordStores");
             areRatedByFunction.CollectionParameter<int>("personIds");
-            areRatedByFunction.Namespace = "AirVinyl.Functions";
+            areRatedByFunction.Namespace = "OData.API.Functions";
 
             var getHighRatedRecordStoresFunction = builder.Function("GetHighRatedRecordStores");
             getHighRatedRecordStoresFunction.Parameter<int>("minimumRating");
@@ -39,16 +35,16 @@ namespace AirVinyl.EntityDataModels
             rateAction.Returns<bool>();
             rateAction.Parameter<int>("rating");
             rateAction.Parameter<int>("personId");
-            rateAction.Namespace = "AirVinyl.Actions";
+            rateAction.Namespace = "OData.API.Actions";
 
             var removeRatingsAction = builder.EntityType<RecordStore>().Collection.Action("RemoveRatings");
             removeRatingsAction.Returns<bool>();
             removeRatingsAction.Parameter<int>("personId");
-            removeRatingsAction.Namespace = "AirVinyl.Actions";
+            removeRatingsAction.Namespace = "OData.API.Actions";
 
             var removeRecordStoreRatingsAction = builder.Action("RemoveRecordStoreRatings");
             removeRecordStoreRatingsAction.Parameter<int>("personId");
-            removeRecordStoreRatingsAction.Namespace = "AirVinyl.Actions";
+            removeRecordStoreRatingsAction.Namespace = "OData.API.Actions";
             
             // "Tim" singleton
             builder.Singleton<Person>("Tim");

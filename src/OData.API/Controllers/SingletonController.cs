@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
-using AirVinyl.API.DbContexts;
-using AirVinyl.Entities;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.OData.Deltas;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
 using Microsoft.EntityFrameworkCore;
+using OData.API.DbContexts;
+using OData.API.Entities;
 
-namespace AirVinyl.Controllers
+namespace OData.API.Controllers
 {
     [Route("odata")]
     public class SingletonController : ODataController

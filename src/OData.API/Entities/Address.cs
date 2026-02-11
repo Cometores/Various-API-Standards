@@ -1,8 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
-namespace AirVinyl.Entities
+namespace OData.API.Entities
 {
     // Address is an owned type (no key) - used to be called complex type in EF.
     [Owned]

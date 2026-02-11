@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.OData.ModelBuilder;
 
-namespace AirVinyl.Entities
+namespace OData.API.Entities
 {
     public class Person
     {

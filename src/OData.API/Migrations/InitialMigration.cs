@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace AirVinyl.Migrations
+namespace OData.API.Migrations
 {
     public partial class InitialMigration : Migration
     {

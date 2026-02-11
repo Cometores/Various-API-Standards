@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AirVinyl.Entities
+namespace OData.API.Entities
 {
     public class PressingDetail
     {

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>AirVinyl</RootNamespace>
+    <RootNamespace>OData.API</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,22 +1,20 @@
-﻿using AirVinyl.API.DbContexts;
-using AirVinyl.Helpers;
-using Microsoft.AspNetCore.Http.Extensions;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.OData.Routing.Controllers;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using AirVinyl.Entities;
+using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Deltas;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Results;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.AspNetCore.OData.Routing.Controllers;
+using Microsoft.EntityFrameworkCore;
+using OData.API.DbContexts;
+using OData.API.Entities;
+using OData.API.Helpers;
 
-namespace AirVinyl.Controllers
+namespace OData.API.Controllers
 {
-    /* Convention based routing for this controller */
+    /* Convention-based routing for this controller */
     public class PeopleController : ODataController
     {
         private readonly AirVinylDbContext _airVinylDbContext;

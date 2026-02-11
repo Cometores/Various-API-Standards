@@ -1,4 +1,4 @@
-﻿namespace AirVinyl.Entities
+﻿namespace OData.API.Entities
 {
     public enum Gender
     {

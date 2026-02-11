@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace AirVinyl.Helpers
+namespace OData.API.Helpers
 {
     public static class PropertyValueHelpers
     {

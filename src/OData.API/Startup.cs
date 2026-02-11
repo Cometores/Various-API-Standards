@@ -1,5 +1,3 @@
-using AirVinyl.API.DbContexts;
-using AirVinyl.EntityDataModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.OData;
@@ -7,8 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OData.API.DbContexts;
+using OData.API.EntityDataModels;
 
-namespace AirVinyl
+namespace OData.API
 {
     public class Startup
     {

@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AirVinyl.API.DbContexts;
-using AirVinyl.Entities;
-using AirVinyl.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -14,9 +11,11 @@ using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Results;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
+using OData.API.DbContexts;
+using OData.API.Entities;
+using OData.API.Helpers;
 
-namespace AirVinyl.Controllers
+namespace OData.API.Controllers
 {
     [Route("odata")]
     public class RecordStoresController : ODataController
@@ -70,7 +69,7 @@ namespace AirVinyl.Controllers
         }
 
         // {key} is bugging in this version => use {id}
-        [HttpGet("RecordStores({id})/AirVinyl.Functions.IsHighRated(minimumRating={minimumRating})")]
+        [HttpGet("RecordStores({id})/OData.API.Functions.IsHighRated(minimumRating={minimumRating})")]
         public async Task<bool> IsHighRated(int id, int minimumRating)
         {
             // get the RecordStore
@@ -80,7 +79,7 @@ namespace AirVinyl.Controllers
             return (recordStore != null);
         }
 
-        [HttpGet("RecordStores/AirVinyl.Functions.AreRatedBy(personIds={people})")]
+        [HttpGet("RecordStores/OData.API.Functions.AreRatedBy(personIds={people})")]
         public async Task<IActionResult> AreRatedBy([FromODataUri] IEnumerable<int> people)
         {
             var recordStores = await _airVinylDbContext.RecordStores
@@ -98,7 +97,7 @@ namespace AirVinyl.Controllers
             return Ok(recordStores);
         }
 
-        [HttpPost("RecordStores({id})/AirVinyl.Actions.Rate")]
+        [HttpPost("RecordStores({id})/OData.API.Actions.Rate")]
         public async Task<IActionResult> Rate(int id, ODataActionParameters parameters)
         {
             // get the RecordStore
@@ -157,7 +156,7 @@ namespace AirVinyl.Controllers
         }
 
         /* Not working yet */
-        [HttpPost("RecordStores/AirVinyl.Actions.RemoveRatings")]
+        [HttpPost("RecordStores/OData.API.Actions.RemoveRatings")]
         public async Task<IActionResult> RemoveRatings(ODataActionParameters parameters)
         {
             // from the param dictionary, get the personId
@@ -250,7 +249,7 @@ namespace AirVinyl.Controllers
         }
 
         [EnableQuery]
-        [HttpGet("RecordStores/AirVinyl.SpecializedRecordStore")]
+        [HttpGet("RecordStores/OData.API.SpecializedRecordStore")]
         public IActionResult GetSpecializedRecordStores()
         {
             var specializedStores =
@@ -259,7 +258,7 @@ namespace AirVinyl.Controllers
         }
 
         [EnableQuery]
-        [HttpGet("RecordStores({id})/AirVinyl.SpecializedRecordStore")]
+        [HttpGet("RecordStores({id})/OData.API.SpecializedRecordStore")]
         public IActionResult GetSpecializedRecordStore(int id)
         {
             var specializedStore =
@@ -290,7 +289,7 @@ namespace AirVinyl.Controllers
         }
 
         [HttpPatch("RecordStores({key})")]
-        [HttpPatch("RecordStores({key})/AirVinyl.SpecializedRecordStore")]
+        [HttpPatch("RecordStores({key})/OData.API.SpecializedRecordStore")]
         public async Task<IActionResult> UpdateRecordStorePartially(int key, [FromBody] Delta<RecordStore> patch)
         {
             if (!ModelState.IsValid)
@@ -315,7 +314,7 @@ namespace AirVinyl.Controllers
         }
 
         [HttpDelete("RecordStores({key})")]
-        [HttpDelete("RecordStores({key})/AirVinyl.SpecializedRecordStore")]
+        [HttpDelete("RecordStores({key})/OData.API.SpecializedRecordStore")]
         public async Task<IActionResult> DeleteRecordStore(int key)
         {
             var currentRecordStore = await _airVinylDbContext.RecordStores.Include("Ratings")
