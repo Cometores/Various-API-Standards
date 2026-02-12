@@ -56,7 +56,7 @@ Key features:
 
 ## Restful API
 API for authors and courses with HATEOAS, data shaping, filtering, paging.</br>
-More information about the API can be found in the [documentation file](./src/CourseLibrary.API/README.md).
+More information about the API can be found in the [documentation file](./src/Restful.API/README.md).
 
 Key features:
 - **HATEOAS** links + `X-Pagination` metadata
@@ -69,7 +69,7 @@ Key features:
 
 
 ## OData API
-More information about the API can be found in the [documentation file](./src/AirVinyl/README.md).
+More information about the API can be found in the [documentation file](./src/OData.API/README.md).
 
 Key features:
 - OData v4 with **functions**, **actions**, **singleton**
