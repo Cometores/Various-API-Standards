@@ -20,9 +20,7 @@ public class CitiesDbContext : DbContext
     /// </summary>
     public DbSet<PointOfInterest?> PointsOfInterest { get; set; } = null!;
 
-    /// <summary>
-    /// Represents the Entity Framework database context for managing the Cities application data.
-    /// </summary>
+    /// <summary>Represents the Entity Framework database context for managing the Cities application data.</summary>
     /// <remarks>
     /// This context is responsible for managing the interaction with the database, including
     /// the `City` and `PointOfInterest` entities. It uses SQLite as the underlying database provider

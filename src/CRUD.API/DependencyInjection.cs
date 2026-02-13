@@ -12,9 +12,7 @@ namespace CRUD.API;
 /// <summary>Provides extension methods for configuring and setting up dependency injection.</summary>
 public static class DependencyInjection
 {
-    /// <summary>
-    /// Registers dependency injection services across all application layers used by this program.
-    /// </summary>
+    /// <summary>Registers dependency injection services across all application layers used by this program.</summary>
     /// <param name="services">The <see cref="IServiceCollection"/> to add services to.</param>
     /// <param name="configuration"><see cref="IConfiguration"/></param>
     /// <returns>The same <see cref="IServiceCollection"/> instance so that additional calls can be chained.</returns>

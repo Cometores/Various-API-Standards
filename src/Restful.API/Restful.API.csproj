@@ -24,4 +24,10 @@
     <None Remove="library.db-wal" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="..\..\tests\Restful.API.postman_collection.json">
+      <Link>Restful.API.postman_collection.json</Link>
+    </Content>
+  </ItemGroup>
+
 </Project>

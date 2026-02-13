@@ -26,7 +26,7 @@ You can use either [Swagger](#swagger) or [Postman](#postman) to play with the A
 
 
 ### Postman
-Import the collection from `CRUD.API.postman_collection.json` [file](CRUD.API.postman_collection.json).
+Import the collection from `CRUD.API.postman_collection.json` [file](../../tests/CRUD.API.postman_collection.json).
 
 ![CRUD.API.postman.png](../../docs/CRUD.API.postman.png)
 

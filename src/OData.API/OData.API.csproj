@@ -19,4 +19,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="..\..\tests\OData.API.postman_collection.json">
+      <Link>OData.API.postman_collection.json</Link>
+    </Content>
+  </ItemGroup>
+
 </Project>

@@ -15,13 +15,13 @@ Consist of three tables in SQLite:
 &emsp;`get`, `post`, `put`, `delete`
 
 ## Start Exploring
-Run `MinimalAPI: http` profile. I recommend using Rider, as you can run this line from there and use their 
+Run `Minimal.API: http` profile. I recommend using Rider, as you can run this line from there and use their 
 database representation configured for Rider. </br>
 Use **Swagger** accessible at: [http://localhost:5080/swagger/index.html](http://localhost:5080/swagger/index.html)
 or **Postman** collection to test the API.
 
 ## Postman
-Import the collection from `Minimal.API.postman_collection.json` [file](Minimal.API.postman_collection.json).
+Import the collection from `Minimal.API.postman_collection.json` [file](../../tests/Minimal.API.postman_collection.json).
 After that you need to authenticate via CLI.
 
 ### Auth
@@ -63,17 +63,19 @@ the lightweight Minimal API model. Instead of attributes, filters are attached i
 without cluttering the handler logic.
 
 ### Filters in this project:
-1) **ValidateAnnotationsFilter**<br />
-   &emsp;Validates DTOs against DataAnnotations using MiniValidation.<br />
-   &emsp;If validation fails → returns ValidationProblem(400).<br />
-   &emsp;Usage: POST /dishes.<br /><br />
+1) **ValidateAnnotationsFilter**
+   - Validates DTOs against DataAnnotations using MiniValidation
+   - If validation fails → returns ValidationProblem(400).
+   - Usage: POST /dishes.
 
-2) **DishIsLockedFilter** <br />
-   &emsp;Checks whether a given dishId is marked as “locked”.<br />
-   &emsp;If locked → short-circuits with Problem(400).<br />
-   &emsp;Usage: PUT/DELETE /dishes/{dishId}.<br /><br />
+
+2) **DishIsLockedFilter**
+   - Checks whether a given dishId is marked as “locked”.
+   - If locked → short-circuits with Problem(400).
+   - PUT/DELETE /dishes/{dishId}.
+
 
 3) **LogNotFoundResponseFilter**
-   &emsp;Executes after the handler.<br />
-   &emsp;If result is 404 NotFound, logs the request path.<br />
-   &emsp;Usage: DELETE /dishes/{dishId}.
+   - Executes after the handler.<br />
+   - If result is 404 NotFound, logs the request path.<br />
+   - Usage: DELETE /dishes/{dishId}.
