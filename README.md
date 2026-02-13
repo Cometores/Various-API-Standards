@@ -20,6 +20,7 @@ API for getting and managing simple information about cities and their points of
 More information about the API can be found in the [documentation file](./src/CRUD.API/README.md).
 
 Key features:
+- `.NET 6`
 - **Authentication** & **Authorization**
 - **Swagger** documentation
 - **Logging** into file and console
@@ -39,6 +40,7 @@ API for getting and managing information about dishes and their ingredients.</br
 More information about the API can be found in the [documentation file](./src/Minimal.API/README.md).
 
 Key features:
+- `.NET 7`
 - **Minimal endpoints** setup
 - creating auth token with `.net cli`
 - **JWT-Bearer Token** authentication
@@ -59,6 +61,7 @@ API for authors and courses with HATEOAS, data shaping, filtering, paging.</br>
 More information about the API can be found in the [documentation file](./src/Restful.API/README.md).
 
 Key features:
+- `.NET 6`
 - **HATEOAS** links + `X-Pagination` metadata
 - **Data shaping** via `fields` & safe sorting via `orderBy`
 - **Filtering**, **searching**, **paging**
@@ -72,8 +75,9 @@ Key features:
 More information about the API can be found in the [documentation file](./src/OData.API/README.md).
 
 Key features:
+- `.NET 5`
 - OData v4 with **functions**, **actions**, **singleton**
-- **$select**, **$expand**, **$filter**, **$orderby**, **$count**
+- **\$select**, **\$expand**, **\$filter**, **\$orderby**, **\$count**
 - Contained navigation: People → VinylRecords
 - **SQL Server LocalDB** with seed data
 
@@ -81,12 +85,13 @@ Key features:
 
 
 ## Testing an API
-Consists of two projects - API itself and tests on xUnit.</br>
-More information about the API can be found in the [documentation file](./src/EmployeeManagement/README.md).
-Testing API with xUnit.
+Consists of two projects - API itself and tests on **xUnit**.</br>
+More information about the API can be found in the [documentation file](./src/Testing.API/README.md).
 
 Key features:
+- `.NET 6`
 - xUnit
+- Moq
 - SQLite
 
 

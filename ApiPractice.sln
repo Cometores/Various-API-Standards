@@ -11,14 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OData.API", "src\OData.API\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.API", "src\Library.API\Library.API.csproj", "{D0D6143D-0B1C-4347-B9FC-B2B6324E0235}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement", "src\EmployeeManagement\EmployeeManagement.csproj", "{033A2C2A-3587-4FA9-99EB-96E42C574415}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testing.API", "src\Testing.API\Testing.API.csproj", "{033A2C2A-3587-4FA9-99EB-96E42C574415}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing.API", "Testing.API", "{FCDC2071-C6BB-47CC-B4C9-5A932F642BBB}"
 	ProjectSection(SolutionItems) = preProject
-		src\EmployeeManagement\README.md = src\EmployeeManagement\README.md
+		src\Testing.API\README.md = src\Testing.API\README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Test", "tests\EmployeeManagement.Test\EmployeeManagement.Test.csproj", "{56AFDB84-5B4F-4178-B217-FA6D2CE79A84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testing.API.Tests", "tests\Testing.API.Tests\Testing.API.Tests.csproj", "{56AFDB84-5B4F-4178-B217-FA6D2CE79A84}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.API", "src\Minimal.API\Minimal.API.csproj", "{FD6483F9-8845-4233-9343-064A14453267}"
 EndProject

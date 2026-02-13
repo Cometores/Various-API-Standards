@@ -1,0 +1,60 @@
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Testing.API.Business;
+using Testing.API.Models;
+
+namespace Testing.API.Controllers;
+
+[Microsoft.AspNetCore.Components.Route("api/demointernalemployees")]
+public class DemoInternalEmployeesController : ControllerBase
+{
+    private readonly IEmployeeService _employeeService;
+    private readonly IMapper _mapper;
+
+    public DemoInternalEmployeesController(IEmployeeService employeeService, IMapper mapper)
+    {
+        _employeeService = employeeService ?? throw new ArgumentNullException(nameof(employeeService));
+        _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<InternalEmployeeDto>> CreateInternalEmployee(
+        InternalEmployeeForCreationDto internalEmployeeForCreation)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        
+        // create an internal employee entity with default values filled out
+        // and the values inputted via the POST request
+        var internalEmployee =
+            await _employeeService.CreateInternalEmployeeAsync(
+                internalEmployeeForCreation.FirstName, internalEmployeeForCreation.LastName);
+
+        // persist it
+        await _employeeService.AddInternalEmployeeAsync(internalEmployee);
+ 
+        // return created employee after mapping to a DTO
+        // ReSharper disable once Mvc.ActionNotResolved
+        return CreatedAtAction("GetInternalEmployee",
+            _mapper.Map<InternalEmployeeDto>(internalEmployee),
+            new { employeeId = internalEmployee.Id } );
+    }
+
+    [HttpGet]
+    [Authorize]
+    public IActionResult GetProtectedInternalEmployees()
+    {
+        // depending on the role, redirect to another action
+        if (User.IsInRole("Admin"))
+        {
+            // ReSharper disable once Mvc.ControllerNotResolved
+            // ReSharper disable once Mvc.ActionNotResolved
+            return RedirectToAction("GetInternalEmployees", "ProtectedInternalEmployees");
+        }
+
+        return RedirectToAction("GetInternalEmployees", "InternalEmployees");
+    }
+}
